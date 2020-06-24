@@ -1,43 +1,51 @@
-// import { example } from './data.js';
-// import data from './data/lol/lol.js';
 import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
 
-let pageNumber = 1;         //En que pagina se inicia....en la primera                  
-let pageSize = 12;          //Cantidad de elementos que se van a mostrar por pagina    
-const pageCont = Math.ceil(data.pokemon.length / pageSize); //contenido de la pagina, se utiliza ceil para aproximar hacia arriba 
-
+const datosPokemon = data.pokemon
+const containerPokemones = document.getElementById("pokemones")
 const botonSiguiente = document.getElementById("siguiente");
 const botonAnterior = document.getElementById("anterior");
+
+const pokemonesPorPagina = 12;
+const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
+
+let paginaInicial = 1;               
+
 
 function paginate(array, page_size, page_number) {      
     return array.slice((page_number - 1) * page_size, page_number * page_size);  //intervalo del array
 }
 
 function crearPokemonCard(pokemon){
-    let card = document.createElement("article");
-        
-    let nombre = document.createElement("h2");
+    
+    const card = document.createElement("article");
+    const container = document.createElement("div")
+    
+    const nombre = document.createElement("h2");
     nombre.innerText = `${pokemon.name}`;
     nombre.setAttribute("class", "pintarTitulo");
     
     
-    
-    let image = document.createElement("img");
+    const image = document.createElement("img");
     image.src = `${pokemon.img}`;
     
     
-    let id = document.createElement("h3");
+    const id = document.createElement("h3");
     id.innerText = ` ${pokemon.id}`;
     
-    let tipo = document.createElement("h3");
+
+    const tipo = document.createElement("h3");
     tipo.innerText = `${pokemon.type}`
     
+
+    container.appendChild(tipo);
+    container.appendChild(id);
+
+    container.setAttribute("class", "flex__container")
+
     
     card.appendChild(nombre);
     card.appendChild(image);
-    card.appendChild(id);
-    card.appendChild(tipo);
+    card.appendChild(container);
     
     card.setAttribute("class", "card");
 
@@ -45,59 +53,64 @@ function crearPokemonCard(pokemon){
 }
 
 function mostrarPokemon(){
-    let pagination = paginate(data.pokemon,pageSize,pageNumber); //array, elementos por pag, pagina en que inicia 
+    let pagination = paginate(datosPokemon,pokemonesPorPagina,paginaInicial);
     pagination.forEach((pokemon) => {
-        document.getElementById("pokemones").appendChild(crearPokemonCard(pokemon))
+        containerPokemones.appendChild(crearPokemonCard(pokemon))
     })
 }
 
 function borrarContenido(){
-    document.getElementById("pokemones").innerHTML = ""
+    containerPokemones.innerHTML = ""
 }
 
 function revisarBotonSiguiente(pagina) {
-    if(pagina+1 > pageCont) {
+    if(pagina+1 > separacionPaginas) {
         botonSiguiente.style.display= "none"  
-        return false
     } else {
         botonSiguiente.style.display= "block"  
-        return true
     }
 }
 
 function revisarBotonAtras(pagina){
     if(pagina-1 === 0 ) {
-        console.log("if")
         botonAnterior.style.display= "none"
-        return false  
     }else {
-        console.log("else")
         botonAnterior.style.display= "block" 
-        return true
     }
 }
 
-
-function siguientePagina(){
+function cambiarPagina(event){
     borrarContenido()
-    if(revisarBotonSiguiente(pageNumber)){
-        pageNumber ++;
-        mostrarPokemon()
+    if(event.target.id === "siguiente"){
+        paginaInicial ++;
+    } else {
+    paginaInicial--
     }
+    mostrarPokemon()
+    revisarBotonAtras(paginaInicial);
+    revisarBotonSiguiente(paginaInicial);
 }
 
+// function siguientePagina(){
+//     borrarContenido()
+//     paginaInicial ++;
+//     mostrarPokemon()
+//     revisarBotonSiguiente(paginaInicial);
+//     revisarBotonAtras(paginaInicial);
+// }
 
-function paginaAnterior(){
-    borrarContenido()
-    if(revisarBotonAtras(pageNumber)){
-        pageNumber--
-        mostrarPokemon()
-    }
-}
 
-botonSiguiente.addEventListener("click", siguientePagina )
-botonAnterior.addEventListener("click", paginaAnterior)
+// function paginaAnterior(){
+//     borrarContenido()
+//     paginaInicial--
+//     mostrarPokemon()
+//     revisarBotonSiguiente(paginaInicial);
+//     revisarBotonAtras(paginaInicial);    
+// }
+
+botonSiguiente.addEventListener("click", cambiarPagina)
+botonAnterior.addEventListener("click", cambiarPagina)
 
 mostrarPokemon();
-revisarBotonSiguiente(pageNumber);
-revisarBotonAtras(pageNumber);
+revisarBotonAtras(paginaInicial);
+revisarBotonSiguiente(paginaInicial);
