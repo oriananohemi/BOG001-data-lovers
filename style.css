@@ -1,0 +1,41 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+li {
+  color: inherit;
+  list-style: none;
+}
+
+
+.flex__container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.pintarTitulo {
+  color: red;
+}
+
+.section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 10px;
+  flex: 1 1 20%;
+  text-align: center;
+  margin: 20px;
+
+}
