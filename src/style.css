@@ -14,6 +14,12 @@ li {
 }
 
 
+.flex__container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .pintarTitulo {
   color: red;
 }
@@ -26,5 +32,10 @@ li {
 }
 
 .card {
-  flex: 1 1 25%;
+  border: 1px solid black;
+  border-radius: 10px;
+  flex: 1 1 20%;
+  text-align: center;
+  margin: 20px;
+
 }
