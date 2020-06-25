@@ -2,31 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Lovers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scale=no">
+    <title>PokemonDEX</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="root">
-      <header>
-        <img src="" alt="">
+      <header class="header">
+        <div class="header__brand__container">
+          <img src="image/Rectangle 1.png" alt="">
+          <h2 class="header__brand">POKEDEX-CODE</h2>
+        </div>
       </header>
-      <main>
+      <i class="fas fa-bars"></i>
+      <main class="main">
         <nav>
-          <ul>
+          <ul class="container__flex">
             <li><a href="">Inicio</a></li>
             <li><a href="">Pokedex</a></li>
             <li><a href="">Ordenar</a></li>
             <li><a href="">Buscar</a></li>
           </ul>
         </nav>
-        <section class="section" id="pokemones">
+        <section class="section__pokemones" id="pokemones">
         </section>
-        <div>
-          <button id="anterior">Anterior</button>
-          <button id="siguiente">Siguiente</button>
+        <div class="container__flex">
+          <button class="button" id="anterior">Anterior</button>
+          <button class="button" id="siguiente">Siguiente</button>
         </div>
         <section>
-          <img src="" alt="">
+          <img src="image//logo.png" alt="">
           <h2>Vamos A Jugar</h2>
         </section>
       </main>
@@ -37,7 +42,7 @@
           <i class="fab fa-youtube"></i>
         </div>
       </footer>
-    </div>
+    </div> -->
     <script src="main.js" type="module"></script>
     <script src="https://kit.fontawesome.com/9fa96555ef.js"></script>
   </body>

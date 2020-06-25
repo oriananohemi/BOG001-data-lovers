@@ -1,163 +1,224 @@
-// import { example } from './data.js';
-// import data from './data/lol/lol.js';
 import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
 
-let pageNumber = 1;         //En que pagina se inicia....en la primera                  
-let pageSize = 12;          //Cantidad de elementos que se van a mostrar por pagina    
-const pageCont = Math.ceil(data.pokemon.length / pageSize); //contenido de la pagina, se utiliza ceil para aproximar hacia arriba 
-
+const datosPokemon = data.pokemon
+const containerPokemones = document.getElementById("pokemones")
 const botonSiguiente = document.getElementById("siguiente");
 const botonAnterior = document.getElementById("anterior");
+
+const pokemonesPorPagina = 12;
+const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
+
+let paginaInicial = 1;  
+
 
 function paginate(array, page_size, page_number) {      
     return array.slice((page_number - 1) * page_size, page_number * page_size);  //intervalo del array
 }
 
+
 function crearPokemonCard(pokemon){
-    let card = document.createElement("article");
-        
-    let nombre = document.createElement("h2");
+    let datoTipo = ['']; 
+    let dato = ['']; 
+
+    const card = document.createElement("article");
+    const container = document.createElement("div")
+    
+    const image = document.createElement("img");
+    image.src = `${pokemon.img}`;
+    image.setAttribute("class", "card__image");
+
+
+    const nombre = document.createElement("h2");
     nombre.innerText = `${pokemon.name}`;
     nombre.setAttribute("class", "pintarTitulo");
     
     
-    
-    let image = document.createElement("img");
-    image.src = `${pokemon.img}`;
-    
-    
-    let id = document.createElement("h3");
+    const id = document.createElement("h3");
     id.innerText = ` ${pokemon.id}`;
-      
-    let dato = ['']; 
-    function tipoDebilidad (data){
-        for (let i = 0; i < data.length; i++) {
-            switch (data[i]){            
-                case 'Grass':
-                    dato += 'Yerba  ';
-                    break;
-                case 'Poison':
-                    dato += 'Veneno  ';
-                    break;
-                case 'Fire':
-                    dato += 'Fuego  ';
-                    break
-                case 'Flying':
-                    dato += 'Volador  ';
-                    break
-                case 'Water':
-                    dato += 'Agua  ';
-                    break    
-                case 'Bug':
-                    dato += 'Insecto  ';
-                    break 
-                case 'Normal':
-                    dato += 'Normal  ';
-                    break   
-                case 'Ground':
-                    dato += 'Tierra  ';
-                    break 
-                case 'Electric':
-                    dato += 'Electrico  ';
-                    break 
-                case 'Fighting':
-                    dato += 'Lucha  ';
-                    break 
-                case 'Psychic':
-                    dato += 'Psiquico  ';
-                    break 
-                case 'Rock':
+    
+    for (let i = 0; i < pokemon.type.length; i++) {
+        switch (pokemon.type[i]){            
+            case 'Grass':
+                datoTipo += 'Yerba  ';
+                break;
+            case 'Poison':
+                datoTipo += 'Veneno  ';
+                break;
+            case 'Fire':
+                datoTipo += 'Fuego  ';
+                break
+            case 'Flying':
+                datoTipo += 'Volador  ';
+                break
+            case 'Water':
+                datoTipo += 'Agua  ';
+                break    
+            case 'Bug':
+                datoTipo += 'Insecto  ';
+                break 
+            case 'Normal':
+                datoTipo += 'Normal  ';
+                break   
+            case 'Ground':
+                datoTipo += 'Tierra  ';
+                break 
+            case 'Electric':
+                datoTipo += 'Electrico  ';
+                break 
+            case 'Fighting':
+                datoTipo += 'Lucha  ';
+                break 
+            case 'Psychic':
+                datoTipo += 'Psiquico  ';
+                break 
+            case 'Rock':
+                datoTipo += 'Roca  ';
+                break  
+            case 'Ice':
+                datoTipo += 'Hielo  ';
+                break     
+            case 'Ghost':
+                datoTipo += 'Fantasma  ';
+                break 
+            case 'Dragon':
+                datoTipo += 'Dragon  ';
+                break                    
+        }         
+    }
+    
+    const tipo = document.createElement("h3");
+    tipo.innerText = `Tipo: ${datoTipo}`;
+
+    for (let i = 0; i < pokemon.weaknesses.length; i++) {
+        switch (pokemon.weaknesses[i]){            
+            case 'Grass':
+                dato += 'Yerba  ';
+                break;
+            case 'Poison':
+                dato += 'Veneno  ';
+                break;
+            case 'Fire':
+                dato += 'Fuego  ';
+                break
+            case 'Flying':
+                dato += 'Volador  ';
+                break
+            case 'Water':
+                dato += 'Agua  ';
+                break    
+            case 'Bug':
+                dato += 'Insecto  ';
+                break 
+            case 'Normal':
+                dato += 'Normal  ';
+                break   
+            case 'Ground':
+                dato += 'Tierra  ';
+                break 
+            case 'Electric':
+                dato += 'Electrico  ';
+                break 
+            case 'Fighting':
+                dato += 'Lucha  ';
+                break 
+            case 'Psychic':
+                dato += 'Psiquico  ';
+                break 
+            case 'Rock':
                 dato += 'Roca  ';
-                    break  
-                case 'Ice':
+                break  
+            case 'Ice':
                 dato += 'Hielo  ';
-                    break     
-                case 'Ghost':
-                    dato += 'Fantasma  ';
-                    break 
-                case 'Dragon':
-                    dato += 'Dragon  ';
-                    break                    
-            }         
-        }
-    return dato
+                break     
+            case 'Ghost':
+                dato += 'Fantasma  ';
+                break 
+            case 'Dragon':
+                dato += 'Dragon  ';
+                break                    
+        }         
     }
 
-    //tipoDebilidad(pokemon.weaknesses)
-    tipoDebilidad(pokemon.type)
-    let tipo = document.createElement("h4");
-    tipo.innerText = `Tipo: ${dato}`;
-    console.log(dato)
+    const debilidades = document.createElement("h3");    
+    debilidades.innerText = `Debilidad: ${dato}`;
+    
+    container.appendChild(nombre)
+    container.appendChild(id);
+    container.appendChild(tipo);
+    container.appendChild(debilidades);
 
-    card.appendChild(nombre);        
+    container.setAttribute("class", "flex__container")
+    container.setAttribute("class", "info__container")
+
+
     card.appendChild(image);
-    card.appendChild(id);
-    card.appendChild(tipo);
+    card.appendChild(container);
     
     card.setAttribute("class", "card");
 
     return card
 }
 
+
 function mostrarPokemon(){
-    let pagination = paginate(data.pokemon,pageSize,pageNumber); //array, elementos por pag, pagina en que inicia 
+    let pagination = paginate(datosPokemon,pokemonesPorPagina,paginaInicial);
     pagination.forEach((pokemon) => {
-        document.getElementById("pokemones").appendChild(crearPokemonCard(pokemon))
+        containerPokemones.appendChild(crearPokemonCard(pokemon))
     })
 }
 
 function borrarContenido(){
-    document.getElementById("pokemones").innerHTML = ""
+    containerPokemones.innerHTML = ""
 }
 
 function revisarBotonSiguiente(pagina) {
-    if(pagina + 1 > pageCont) {
+    if(pagina+1 > separacionPaginas) {
         botonSiguiente.style.display= "none"  
-        return false
     } else {
         botonSiguiente.style.display= "block"  
-        return true
     }
 }
 
 function revisarBotonAtras(pagina){
-    if(pagina != 1) {
-        //console.log("if")
-        botonAnterior.style.display= "block" 
-        return true
-    } else {
+    if(pagina-1 === 0 ) {
         botonAnterior.style.display= "none"
-        return false 
-        //console.log("else")
+    }else {
+        botonAnterior.style.display= "block" 
     }
 }
 
-
-function siguientePagina(){
+function cambiarPagina(event){
     borrarContenido()
-    if(revisarBotonSiguiente(pageNumber)){
-        pageNumber ++;
-        mostrarPokemon()
-        console.log(pageNumber)
+    if(event.target.id === "siguiente"){
+        paginaInicial ++;
+    } else {
+    paginaInicial--
     }
+    mostrarPokemon()
+    revisarBotonAtras(paginaInicial);
+    revisarBotonSiguiente(paginaInicial);
 }
 
+// function siguientePagina(){
+//     borrarContenido()
+//     paginaInicial ++;
+//     mostrarPokemon()
+//     revisarBotonSiguiente(paginaInicial);
+//     revisarBotonAtras(paginaInicial);
+// }
 
-function paginaAnterior(){
-    borrarContenido()
-    if(revisarBotonAtras(pageNumber)){
-        pageNumber --;
-        mostrarPokemon()
-        console.log(pageNumber)
-    }
-    
-}
 
-botonSiguiente.addEventListener("click", siguientePagina )
-botonAnterior.addEventListener("click", paginaAnterior)
+// function paginaAnterior(){
+//     borrarContenido()
+//     paginaInicial--
+//     mostrarPokemon()
+//     revisarBotonSiguiente(paginaInicial);
+//     revisarBotonAtras(paginaInicial);    
+// }
+
+botonSiguiente.addEventListener("click", cambiarPagina)
+botonAnterior.addEventListener("click", cambiarPagina)
 
 mostrarPokemon();
-revisarBotonSiguiente(pageNumber);
-revisarBotonAtras(pageNumber);
-
+revisarBotonAtras(paginaInicial);
+revisarBotonSiguiente(paginaInicial);
