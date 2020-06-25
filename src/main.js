@@ -20,13 +20,14 @@ function crearPokemonCard(pokemon){
     const card = document.createElement("article");
     const container = document.createElement("div")
     
+    const image = document.createElement("img");
+    image.src = `${pokemon.img}`;
+    image.setAttribute("class", "card__image");
+
+
     const nombre = document.createElement("h2");
     nombre.innerText = `${pokemon.name}`;
     nombre.setAttribute("class", "pintarTitulo");
-    
-    
-    const image = document.createElement("img");
-    image.src = `${pokemon.img}`;
     
     
     const id = document.createElement("h3");
@@ -35,15 +36,19 @@ function crearPokemonCard(pokemon){
 
     const tipo = document.createElement("h3");
     tipo.innerText = `${pokemon.type}`
-    
 
-    container.appendChild(tipo);
+    const debilidades = document.createElement("h3");
+    debilidades.innerText = `${pokemon.weaknesses}`;
+    
+    container.appendChild(nombre)
     container.appendChild(id);
+    container.appendChild(tipo);
+    container.appendChild(debilidades);
 
     container.setAttribute("class", "flex__container")
+    container.setAttribute("class", "info__container")
 
-    
-    card.appendChild(nombre);
+
     card.appendChild(image);
     card.appendChild(container);
     
