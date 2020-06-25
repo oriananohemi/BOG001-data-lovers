@@ -37,10 +37,13 @@ body {
 }
 
 .header {
-  /* background-color: white; */
+  align-items: center;
+  background-color: #E9E9E9;
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
-  /* top: 0; */
-  /* position: fixed; */
+  top: 0;
+  position: fixed;
   width: 100%;
 }
 
@@ -48,6 +51,10 @@ body {
 .main {
   border-bottom: 3px solid #EA1C27;
   box-shadow: 0px 4px 4px rgba(234, 28, 39, 0.25);
+}
+
+.main {
+  margin-top: 120px;
 }
 
 .header__brand {
@@ -64,34 +71,34 @@ body {
 }
 
 .fas.fa-bars {
-  color: #FFCB09;
+  color: #1C2D61;
   font-size: 30px;
   margin: 20px;
-  /* top: 100px; */
-  /* position: fixed; */
-  
 }
 
 .header__menu {
-  background-color: #FFCB09;
+  background-color: #1C2D61;
   position: fixed;
   right: 0;
-  top: 100px;
+  top: 95px;
   left: 0;
-  bottom: 0;
   text-align: center;
   width: 100%;
 }
 
 .header__link {
-  /* background-color: #FFCB09; */
-  /* background: linear-gradient(rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .1) 100%), url('image/fondo\ pokemon\ 1.png'); */
-  border-bottom: 1px solid black;
-  box-shadow: 0px 4px 4px rgba(234, 28, 39, 0.25);
+  align-items: center;
+  border-bottom: 1px solid #E9E9E9;
   color: white;
-  padding: 10px;
-  margin: 10px 0;
+  display: flex;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 20px 10px;
   width: 100%;
+}
+
+.fas {
+  margin-right: 10px;
 }
 
 .section__content {
@@ -115,7 +122,6 @@ body {
   border-top: 1px solid black ;
   padding: 10px;
   text-align: left;
-  background-color: red;
 }
 
 /* NOMBRE */
@@ -145,16 +151,18 @@ body {
 }
 
 .section__link h2 {
+  color: #1C2D61;
   font-size: 18px;
   font-weight: bold;
 }
 
 .section__link img {
   border-bottom: 3px solid rgba(234, 28, 39, 0.4);
-  box-shadow: 0px 5px 5px rgba(234, 28, 39, 0.25);
+  box-shadow: 0px 17px 15px -9px rgba(234, 28, 39, 0.25);
 }
 
 footer {
+  /* background-color: #E9E9E9; */
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
