@@ -196,3 +196,46 @@ footer p {
   font-size: 38px;
   padding-right: 10px;
 }
+
+@media (min-width: 768px) {
+
+.fas.fa-bars {
+  display: none;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-evenly;
+  top: 80px;
+  background-color: #FFCB09;
+  border: 2px solid #1C2D61; 
+  width: 95%;
+  margin: 0 auto;
+}
+
+.header__link {
+  color: #1C2D61;
+  font-family: 'Staatliches', cursive;
+  font-size: 23px;
+  letter-spacing: 2px;
+  border-right: 2px solid #1C2D61;
+  text-align: center;
+  padding: 10px 35px;
+}
+
+.section__content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: center;  
+}
+
+.card__container {
+  flex-wrap: wrap;
+  width: 40%;
+  margin: 35px 0px 10px 10px;
+}
+
+
+
+}

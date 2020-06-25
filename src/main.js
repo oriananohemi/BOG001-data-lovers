@@ -177,6 +177,7 @@ function borrarContenido(){
 }
 
 function revisarBotonSiguiente(pagina) {
+    
     if(pagina+1 > separacionPaginas) {
         botonSiguiente.style.display= "none"  
     } else {
@@ -193,12 +194,14 @@ function revisarBotonAtras(pagina){
 }
 
 function cambiarPagina(event){
-    borrarContenido()
+    window.scrollTo(0, 1)
+    borrarContenido();    
     if(event.target.id === "siguiente"){
         paginaInicial ++;
     } else {
-    paginaInicial--
+        paginaInicial--
     }
+    
     mostrarPokemon()
     revisarBotonAtras(paginaInicial);
     revisarBotonSiguiente(paginaInicial);
