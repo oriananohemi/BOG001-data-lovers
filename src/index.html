@@ -8,34 +8,36 @@
   </head>
   <body>
     <div id="root">
-      <header class="header">
-        <div class="header__brand__container">
+      <header class="header container__flex">
+        <div class="header__brand">
           <img src="image/Rectangle 1.png" alt="">
-          <h2 class="header__brand">POKEDEX-CODE</h2>
+          <h2 class="header__brand__title">POKEDEX-CODE</h2>
         </div>
+            <nav>
+              <i id="menuTrigger" class="fas fa-bars"></i>
+              <ul class="hidden header__menu" id="menu">
+                <li><a class="header__link fas fa-home" href="">Inicio</a></li>
+                <li><a class="header__link fas fa-gamepad" href="">Pokedex</a></li>
+                <li><a class="header__link fas fa-sort" href="">Ordenar</a></li>
+                <li><a class="header__link fas fa-search" href="">Buscar</a></li>
+              </ul>
+            </nav>
       </header>
-      <i class="fas fa-bars"></i>
       <main class="main">
-        <nav>
-          <ul class="container__flex">
-            <li><a href="">Inicio</a></li>
-            <li><a href="">Pokedex</a></li>
-            <li><a href="">Ordenar</a></li>
-            <li><a href="">Buscar</a></li>
-          </ul>
-        </nav>
-        <section class="section__pokemones" id="pokemones">
+        <section class="section__content" id="pokemones">
         </section>
-        <div class="container__flex">
+        <div class="button__container">
           <button class="button" id="anterior">Anterior</button>
           <button class="button" id="siguiente">Siguiente</button>
         </div>
-        <section class="section__logo">
-          <img src="image//logo.png" alt="">
-          <h2>VAMOS A JUGAR</h2>
-        </section>
+        <a href="https://pokemongolive.com/es/" target="_blank">
+          <div class="section__link">
+            <img class="section__link__image" src="image//logo.png" alt="">
+            <h2 class="section__link__title">Vamos A Jugar</h2>
+          </div>
+        </a>
       </main>
-      <footer>
+      <footer class="container__flex">
         <div>
           <p>Tu guia pokemon</p>
           <p>Hecho con amor</p>

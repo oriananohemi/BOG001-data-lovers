@@ -18,30 +18,31 @@ li {
 .container__flex {
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
-  /* background: linear-gradient(rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .1) 100%), url('image/fondo\ pokemon\ 1.png'); */
   background: url('image/fondo\ pokemon\ 1.png');
   background-position: center;
   background-size: contain;
+  color: #1C2D61;
   font-size: 18px;
   font-family: 'Lato', sans-serif;
   color: #1C2D61;
 }
 
 .header {
+  /* background-color: white; */
   padding: 10px;
+  /* top: 0; */
+  /* position: fixed; */
   width: 100%;
 }
-
-.header__brand {
-  font-family: 'Staatliches', cursive;
-  color: #1C2D61;
-  font-size: 38px;
-  margin-left: 10px;
-}  
 
 .header,
 .main {
@@ -49,26 +50,59 @@ body {
   box-shadow: 0px 4px 4px rgba(234, 28, 39, 0.25);
 }
 
-.header__brand__container {
-  align-items: center;
+.header__brand {
+  align-items: flex-end;
+  color: #1C2D61;
   display: flex;
+  font-size: 25px;
+  font-family: 'Staatliches', cursive;
   justify-content: flex-start;
+}
+
+.header__brand__title {
+  margin-left: 10px;
 }
 
 .fas.fa-bars {
   color: #FFCB09;
-  font-size: 25px;
+  font-size: 30px;
   margin: 20px;
+  /* top: 100px; */
+  /* position: fixed; */
+  
 }
 
-.section__pokemones {
+.header__menu {
+  background-color: #FFCB09;
+  position: fixed;
+  right: 0;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.header__link {
+  /* background-color: #FFCB09; */
+  /* background: linear-gradient(rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .1) 100%), url('image/fondo\ pokemon\ 1.png'); */
+  border-bottom: 1px solid black;
+  box-shadow: 0px 4px 4px rgba(234, 28, 39, 0.25);
+  color: white;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.section__content {
   margin: 0 auto;
   width: 70%;
 }
 
-.card {
-  border: 1px solid black;
+.card__container {
   background-color: white;
+  border: 1px solid black;
+  font-size: 180x;
   text-align: center;
   margin: 30px auto;
 }
@@ -77,9 +111,19 @@ body {
   width: 150px ;
 }
 
-.info__container {
+.card__info {
   border-top: 1px solid black ;
   padding: 10px;
+  text-align: left;
+  background-color: red;
+}
+
+/* NOMBRE */
+.button__container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .button {
@@ -88,24 +132,24 @@ body {
   height: 40px;
   border-radius: 10px;
   border: 1px solid #1C2D61;
+  color: #1C2D61;
   outline: none;
   font-family: 'Staatliches', cursive;
   font-size: 28px;
-  color: #1C2D61;
   cursor: pointer;
 }
 
-.section__logo {
+.section__link {
   text-align: center;
   padding: 30px;
 }
 
-.section__logo h2 {
+.section__link h2 {
   font-size: 18px;
   font-weight: bold;
 }
 
-.section__logo img {
+.section__link img {
   border-bottom: 3px solid rgba(234, 28, 39, 0.4);
   box-shadow: 0px 5px 5px rgba(234, 28, 39, 0.25);
 }
