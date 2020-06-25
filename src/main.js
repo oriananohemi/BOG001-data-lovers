@@ -4,6 +4,7 @@ const datosPokemon = data.pokemon
 const containerPokemones = document.getElementById("pokemones")
 const botonSiguiente = document.getElementById("siguiente");
 const botonAnterior = document.getElementById("anterior");
+const menuHamburguesa = document.getElementById("menuTrigger")
 
 const pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
@@ -22,19 +23,21 @@ function crearPokemonCard(pokemon){
 
     const card = document.createElement("article");
     const container = document.createElement("div")
-    
+    // NOMBRE DE CLASE
+    const containerTitulo = document.createElement("div")
+
     const image = document.createElement("img");
     image.src = `${pokemon.img}`;
     image.setAttribute("class", "card__image");
 
 
     const nombre = document.createElement("h2");
-    nombre.innerText = `${pokemon.name}`;
+    nombre.innerHTML = `${pokemon.name}`;
     nombre.setAttribute("class", "pintarTitulo");
     
     
     const id = document.createElement("h3");
-    id.innerText = ` ${pokemon.id}`;
+    id.innerHTML = ` ${pokemon.id}`;
     
     for (let i = 0; i < pokemon.type.length; i++) {
         switch (pokemon.type[i]){            
@@ -87,74 +90,76 @@ function crearPokemonCard(pokemon){
     }
     
     const tipo = document.createElement("h3");
-    tipo.innerText = `Tipo: ${datoTipo}`;
+    tipo.innerHTML = `Tipo: ${datoTipo}`
 
     for (let i = 0; i < pokemon.weaknesses.length; i++) {
         switch (pokemon.weaknesses[i]){            
             case 'Grass':
-                dato += 'Yerba  ';
+                datoTipo += 'Yerba  ';
                 break;
             case 'Poison':
-                dato += 'Veneno  ';
+                datoTipo += 'Veneno  ';
                 break;
             case 'Fire':
-                dato += 'Fuego  ';
+                datoTipo += 'Fuego  ';
                 break
             case 'Flying':
-                dato += 'Volador  ';
+                datoTipo += 'Volador  ';
                 break
             case 'Water':
-                dato += 'Agua  ';
+                datoTipo += 'Agua  ';
                 break    
             case 'Bug':
-                dato += 'Insecto  ';
+                datoTipo += 'Insecto  ';
                 break 
             case 'Normal':
-                dato += 'Normal  ';
+                datoTipo += 'Normal  ';
                 break   
             case 'Ground':
-                dato += 'Tierra  ';
+                datoTipo += 'Tierra  ';
                 break 
             case 'Electric':
-                dato += 'Electrico  ';
+                datoTipo += 'Electrico  ';
                 break 
             case 'Fighting':
-                dato += 'Lucha  ';
+                datoTipo += 'Lucha  ';
                 break 
             case 'Psychic':
-                dato += 'Psiquico  ';
+                datoTipo += 'Psiquico  ';
                 break 
             case 'Rock':
-                dato += 'Roca  ';
+                datoTipo += 'Roca  ';
                 break  
             case 'Ice':
-                dato += 'Hielo  ';
+                datoTipo += 'Hielo  ';
                 break     
             case 'Ghost':
-                dato += 'Fantasma  ';
+                datoTipo += 'Fantasma  ';
                 break 
             case 'Dragon':
-                dato += 'Dragon  ';
+                datoTipo += 'Dragon  ';
                 break                    
         }         
     }
 
-    const debilidades = document.createElement("h3");    
-    debilidades.innerText = `Debilidad: ${dato}`;
+    const debilidades = document.createElement("h3");
+    debilidades.innerHTML = `Debilidad: ${dato}`;
     
-    container.appendChild(nombre)
-    container.appendChild(id);
+    containerTitulo.appendChild(nombre)
+    containerTitulo.appendChild(id);
+    containerTitulo.setAttribute("class", "container__flex")
+
+    container.appendChild(containerTitulo);
     container.appendChild(tipo);
     container.appendChild(debilidades);
 
-    container.setAttribute("class", "flex__container")
-    container.setAttribute("class", "info__container")
+    container.setAttribute("class", "card__info")
 
 
     card.appendChild(image);
     card.appendChild(container);
     
-    card.setAttribute("class", "card");
+    card.setAttribute("class", "card__container");
 
     return card
 }
@@ -216,8 +221,13 @@ function cambiarPagina(event){
 //     revisarBotonAtras(paginaInicial);    
 // }
 
+function abrirMenu() {
+    document.getElementById("menu").classList.toggle("hidden")
+}
+
 botonSiguiente.addEventListener("click", cambiarPagina)
 botonAnterior.addEventListener("click", cambiarPagina)
+menuHamburguesa.addEventListener("click", abrirMenu)
 
 mostrarPokemon();
 revisarBotonAtras(paginaInicial);
