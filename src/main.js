@@ -29,12 +29,68 @@ function crearPokemonCard(pokemon){
     
     let id = document.createElement("h3");
     id.innerText = ` ${pokemon.id}`;
-    
-    let tipo = document.createElement("h3");
-    tipo.innerText = `${pokemon.type}`
-    
-    
-    card.appendChild(nombre);
+      
+    let dato = ['']; 
+    function tipoDebilidad (data){
+        for (let i = 0; i < data.length; i++) {
+            switch (data[i]){            
+                case 'Grass':
+                    dato += 'Yerba  ';
+                    break;
+                case 'Poison':
+                    dato += 'Veneno  ';
+                    break;
+                case 'Fire':
+                    dato += 'Fuego  ';
+                    break
+                case 'Flying':
+                    dato += 'Volador  ';
+                    break
+                case 'Water':
+                    dato += 'Agua  ';
+                    break    
+                case 'Bug':
+                    dato += 'Insecto  ';
+                    break 
+                case 'Normal':
+                    dato += 'Normal  ';
+                    break   
+                case 'Ground':
+                    dato += 'Tierra  ';
+                    break 
+                case 'Electric':
+                    dato += 'Electrico  ';
+                    break 
+                case 'Fighting':
+                    dato += 'Lucha  ';
+                    break 
+                case 'Psychic':
+                    dato += 'Psiquico  ';
+                    break 
+                case 'Rock':
+                dato += 'Roca  ';
+                    break  
+                case 'Ice':
+                dato += 'Hielo  ';
+                    break     
+                case 'Ghost':
+                    dato += 'Fantasma  ';
+                    break 
+                case 'Dragon':
+                    dato += 'Dragon  ';
+                    break                    
+            }         
+        }
+    return dato
+    }
+
+    //tipoDebilidad(pokemon.weaknesses)
+    tipoDebilidad(pokemon.type)
+    let tipo = document.createElement("h4");
+    tipo.innerText = `Tipo: ${dato}`;
+    console.log(dato)
+
+    card.appendChild(nombre);        
     card.appendChild(image);
     card.appendChild(id);
     card.appendChild(tipo);
@@ -56,7 +112,7 @@ function borrarContenido(){
 }
 
 function revisarBotonSiguiente(pagina) {
-    if(pagina+1 > pageCont) {
+    if(pagina + 1 > pageCont) {
         botonSiguiente.style.display= "none"  
         return false
     } else {
@@ -66,14 +122,14 @@ function revisarBotonSiguiente(pagina) {
 }
 
 function revisarBotonAtras(pagina){
-    if(pagina-1 === 0 ) {
-        console.log("if")
-        botonAnterior.style.display= "none"
-        return false  
-    }else {
-        console.log("else")
+    if(pagina != 1) {
+        //console.log("if")
         botonAnterior.style.display= "block" 
         return true
+    } else {
+        botonAnterior.style.display= "none"
+        return false 
+        //console.log("else")
     }
 }
 
@@ -83,6 +139,7 @@ function siguientePagina(){
     if(revisarBotonSiguiente(pageNumber)){
         pageNumber ++;
         mostrarPokemon()
+        console.log(pageNumber)
     }
 }
 
@@ -90,9 +147,11 @@ function siguientePagina(){
 function paginaAnterior(){
     borrarContenido()
     if(revisarBotonAtras(pageNumber)){
-        pageNumber--
+        pageNumber --;
         mostrarPokemon()
+        console.log(pageNumber)
     }
+    
 }
 
 botonSiguiente.addEventListener("click", siguientePagina )
@@ -101,3 +160,4 @@ botonAnterior.addEventListener("click", paginaAnterior)
 mostrarPokemon();
 revisarBotonSiguiente(pageNumber);
 revisarBotonAtras(pageNumber);
+
