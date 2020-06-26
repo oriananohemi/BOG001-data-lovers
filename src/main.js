@@ -207,23 +207,6 @@ function cambiarPagina(event){
     revisarBotonSiguiente(paginaInicial);
 }
 
-// function siguientePagina(){
-//     borrarContenido()
-//     paginaInicial ++;
-//     mostrarPokemon()
-//     revisarBotonSiguiente(paginaInicial);
-//     revisarBotonAtras(paginaInicial);
-// }
-
-
-// function paginaAnterior(){
-//     borrarContenido()
-//     paginaInicial--
-//     mostrarPokemon()
-//     revisarBotonSiguiente(paginaInicial);
-//     revisarBotonAtras(paginaInicial);    
-// }
-
 function abrirMenu() {
     document.getElementById("menu").classList.toggle("hidden")
 }
