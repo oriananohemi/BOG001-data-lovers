@@ -1,10 +1,17 @@
 import data from './data/pokemon/pokemon.js';
+// import filtrar from './data';
 
 const datosPokemon = data.pokemon
 const containerPokemones = document.getElementById("pokemones")
 const botonSiguiente = document.getElementById("siguiente");
 const botonAnterior = document.getElementById("anterior");
 const menuHamburguesa = document.getElementById("menuTrigger")
+const modal = document.getElementById("modal")
+const main = document.getElementById("main")
+const infoPokemon = document.getElementsByClassName("modal__pokemon__info")
+
+document.getElementById("cerrar").addEventListener("click", cerrarModal)
+
 
 const pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
@@ -16,12 +23,11 @@ function paginate(array, page_size, page_number) {
     return array.slice((page_number - 1) * page_size, page_number * page_size);  //intervalo del array
 }
 
-
 function crearPokemonCard(pokemon){
     let datoTipo = ['']; 
     let dato = ['']; 
 
-    const card = document.createElement("article");
+    const card = document.createElement("a");
     const container = document.createElement("div")
     // NOMBRE DE CLASE
     const containerTitulo = document.createElement("div")
@@ -42,7 +48,7 @@ function crearPokemonCard(pokemon){
     for (let i = 0; i < pokemon.type.length; i++) {
         switch (pokemon.type[i]){            
             case 'Grass':
-                datoTipo += 'Yerba  ';
+                datoTipo += 'Yerba  '; 
                 break;
             case 'Poison':
                 datoTipo += 'Veneno  ';
@@ -161,9 +167,10 @@ function crearPokemonCard(pokemon){
     
     card.setAttribute("class", "card__container");
 
+    card.addEventListener("click", () => abrirModal(pokemon))
+    
     return card
 }
-
 
 function mostrarPokemon(){
     let pagination = paginate(datosPokemon,pokemonesPorPagina,paginaInicial);
@@ -208,7 +215,24 @@ function cambiarPagina(event){
 }
 
 function abrirMenu() {
-    document.getElementById("menu").classList.toggle("hidden")
+    document.getElementById("menu").classList.toggle("header__menu__position")
+}
+
+function abrirModal(pokemon){
+    modal.classList.remove("hidden")
+    main.classList.add("hidden")
+    pintarPokemonEnModal(pokemon)
+}
+
+function cerrarModal(){
+    modal.classList.add("hidden")
+    main.classList.remove("hidden")
+}
+
+function pintarPokemonEnModal(pokemon){
+    console.log(infoPokemon)
+    infoPokemon.innerHTML = 
+    `<h2>${pokemon.name}</h2>`   
 }
 
 botonSiguiente.addEventListener("click", cambiarPagina)
@@ -218,3 +242,6 @@ menuHamburguesa.addEventListener("click", abrirMenu)
 mostrarPokemon();
 revisarBotonAtras(paginaInicial);
 revisarBotonSiguiente(paginaInicial);
+
+
+// filtrar(data, 'Ice')

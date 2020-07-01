@@ -15,7 +15,7 @@
         </div>
           <nav>
             <i id="menuTrigger" class="fas fa-bars"></i>
-            <ul class="hidden header__menu" id="menu">
+            <ul class="header__menu header__menu__position" id="menu">
               <li>
                 <a class="header__link" href="">
                 <i class="fas fa-home" ></i>
@@ -52,18 +52,26 @@
           </nav>
       </header>
       <main class="main">
-        <section class="section__content" id="pokemones">
-        </section>
-        <div class="button__container">
-          <button class="button" id="anterior">Anterior</button>
-          <button class="button" id="siguiente">Siguiente</button>
-        </div>
-        <a href="https://pokemongolive.com/es/" target="_blank">
-          <div class="section__link">
-            <img class="section__link__image" src="image//logo.png" alt="">
-            <h2 class="section__link__title">VAMOS A JUGAR</h2>
+        <div id="main">
+          <section class="section__content" id="pokemones">
+          </section>
+          <div class="button__container">
+            <button class="button" id="anterior">Anterior</button>
+            <button class="button" id="siguiente">Siguiente</button>
           </div>
-        </a>
+          <a href="https://pokemongolive.com/es/" target="_blank">
+            <div class="section__link">
+              <img class="section__link__image" src="image//logo.png" alt="">
+              <h2 class="section__link__title">VAMOS A JUGAR</h2>
+            </div>
+          </a>
+        </div>
+        <section id="modal" class="hidden">
+          <div class="modal__pokemon__info">
+
+          </div>
+          <button id="cerrar" class="button">Regresar</button>
+        </section>
       </main>
       <footer class="container__flex">
         <div>
