@@ -22,10 +22,6 @@ li {
   margin: 10px 0;
 }
 
-.hidden {
-  display: none;
-}
-
 body {
   background: url('image/fondo\ pokemon\ 1.png');
   background-position: center;
@@ -102,7 +98,14 @@ body {
   width: 100%;
 }
 
-.header__link.active {
+.header__link .fa-home,
+.header__link .fa-gamepad,
+.header__link .fa-sort,
+.header__link .fa-search {
+  pointer-events: none;
+}
+
+.header__link__active {
   background-color: red;
 }
 
@@ -215,15 +218,15 @@ footer p {
   padding-right: 10px;
 }
 
-.hidden {
-  display: none;
-}
-
 .modal__pokemon__info {
   background-color: white;
   height: 60%;
   margin: 100px auto;
   width: 70%;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -264,7 +267,7 @@ footer p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 100px ;  
+    padding-top: 40px ;  
     width: 90%;
   }
 

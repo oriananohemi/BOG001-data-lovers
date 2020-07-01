@@ -5,19 +5,43 @@ const datosPokemon = data.pokemon
 const containerPokemones = document.getElementById("pokemones")
 const botonSiguiente = document.getElementById("siguiente");
 const botonAnterior = document.getElementById("anterior");
-const menuHamburguesa = document.getElementById("menuTrigger")
-const modal = document.getElementById("modal")
-const main = document.getElementById("main")
-const infoPokemon = document.getElementsByClassName("modal__pokemon__info")[0]
-
-document.getElementById("cerrar").addEventListener("click", cerrarModal)
-
+const menuHamburguesa = document.getElementById("menuTrigger");
+const modal = document.getElementById("modal");
+const main = document.getElementById("contenedorTodaData");
+const infoPokemon = document.getElementsByClassName("modal__pokemon__info")[0];
+const botonCerrarModal = document.getElementById("cerrar");
+const links = document.querySelectorAll(".header__link")
 
 const pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
 
 let paginaInicial = 1;  
 
+function agregarEscuchador(){
+    links.forEach(link => link.addEventListener("click", cambiarVista) )
+}
+
+agregarEscuchador()
+
+function cambiarVista(evento){
+    
+    document.querySelectorAll(".paginas").forEach(pagina => pagina.classList.add("hidden"))
+    
+    let linkActivo = document.querySelector(".header__link__active")
+    
+    linkActivo.classList.remove("header__link__active")
+
+
+
+    const enlace = evento.target
+
+    
+    enlace.classList.add("header__link__active")
+    
+    const pagina = enlace.getAttribute("href").slice(1)
+    
+    document.getElementById(pagina).classList.remove("hidden")
+}
 
 function paginate(array, page_size, page_number) {      
     return array.slice((page_number - 1) * page_size, page_number * page_size);  //intervalo del array
@@ -27,7 +51,7 @@ function crearPokemonCard(pokemon){
     let datoTipo = ['']; 
     let dato = ['']; 
 
-    const card = document.createElement("a");
+    const card = document.createElement("article");
     const container = document.createElement("div")
     // NOMBRE DE CLASE
     const containerTitulo = document.createElement("div")
@@ -238,10 +262,8 @@ function pintarPokemonEnModal(pokemon){
 botonSiguiente.addEventListener("click", cambiarPagina)
 botonAnterior.addEventListener("click", cambiarPagina)
 menuHamburguesa.addEventListener("click", abrirMenu)
+botonCerrarModal.addEventListener("click", cerrarModal)
 
 mostrarPokemon();
 revisarBotonAtras(paginaInicial);
 revisarBotonSiguiente(paginaInicial);
-
-
-// filtrar(data, 'Ice')

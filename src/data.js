@@ -1,11 +1,10 @@
-// estas funciones son de ejemplo
 
-// export const filtrar = (data, tipo) => {
-//   data.filter(dato => {
-//     dato.type === tipo})
-//   return 'example';
-// };
-
-export const anotherExample = () => {
-  return 'OMG';
+export const filterData = (data, condition) => {
+  data.filter(dato => {
+    dato.type === condition})
+  return 'example';
 };
+
+// export const sortData = (data, sortBy, sortOrder) => {
+//   return 'OMG';
+// };

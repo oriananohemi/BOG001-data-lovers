@@ -17,62 +17,72 @@
             <i id="menuTrigger" class="fas fa-bars"></i>
             <ul class="header__menu header__menu__position" id="menu">
               <li>
-                <a class="header__link" href="">
+                <a class="header__link header__link__active" href="#inicio">
                 <i class="fas fa-home" ></i>
-                <p>
                   INICIO
-                </p>
               </a>
               </li>
               <li>
-                <a class="header__link" href="">
+                <a class="header__link" href="#pokedex">
                   <i class="fas fa-gamepad" ></i>
-                  <p>
                     POKEDEX
-                  </p>
               </a>
             </li>
               <li>
-                <a class="header__link" href="">
+                <a class="header__link" href="#ordenar">
                   <i class="fas fa-sort"></i>
-                  <p>
                     ORDENAR
-                  </p>
                 </a>
               </li>
               <li>
-                <a class="header__link" href="">
+                <a class="header__link" href="#buscar">
                   <i class="fas fa-search"></i>
-                  <p>
                     BUSCAR
-                  </p>
                 </a>
               </li>
             </ul>
           </nav>
       </header>
-      <main class="main">
-        <div id="main">
-          <section class="section__content" id="pokemones">
-          </section>
-          <div class="button__container">
-            <button class="button" id="anterior">Anterior</button>
-            <button class="button" id="siguiente">Siguiente</button>
-          </div>
-          <a href="https://pokemongolive.com/es/" target="_blank">
-            <div class="section__link">
-              <img class="section__link__image" src="image//logo.png" alt="">
-              <h2 class="section__link__title">VAMOS A JUGAR</h2>
-            </div>
-          </a>
-        </div>
-        <section id="modal" class="hidden">
-          <div class="modal__pokemon__info">
 
+
+      <main class="main">
+
+        <div id="inicio" class="hidden">
+
+        </div>
+
+        <div id="pokedex" class="paginas hidden">
+          <div id="contenedorTodaData">
+            <section class="section__content" id="pokemones">
+            </section>
+            <div class="button__container">
+              <button class="button" id="anterior">Anterior</button>
+              <button class="button" id="siguiente">Siguiente</button>
+            </div>
+            <a href="https://pokemongolive.com/es/" target="_blank">
+              <div class="section__link">
+                <img class="section__link__image" src="image//logo.png" alt="">
+                <h2 class="section__link__title">VAMOS A JUGAR</h2>
+              </div>
+            </a>
           </div>
-          <button id="cerrar" class="button">Regresar</button>
-        </section>
+          <section id="modal" class="hidden">
+            <div class="modal__pokemon__info">
+            </div>
+            <button id="cerrar" class="button">Regresar</button>
+          </section>
+        </div>
+
+        <div id="ordenar" class="paginas hidden">
+          <h2>ORDENADO</h2>
+        </div>
+
+        <div id="buscar" class="paginas hidden">
+          <h2>Buscar</h2>
+        </div>
       </main>
+
+
       <footer class="container__flex">
         <div>
           <p>Tu guia pokemon</p>
