@@ -8,7 +8,7 @@ const botonAnterior = document.getElementById("anterior");
 const menuHamburguesa = document.getElementById("menuTrigger")
 const modal = document.getElementById("modal")
 const main = document.getElementById("main")
-const infoPokemon = document.getElementsByClassName("modal__pokemon__info")
+const infoPokemon = document.getElementsByClassName("modal__pokemon__info")[0]
 
 document.getElementById("cerrar").addEventListener("click", cerrarModal)
 
