@@ -10,7 +10,7 @@ const modal = document.getElementById("modal");
 const main = document.getElementById("contenedorTodaData");
 const infoPokemon = document.getElementsByClassName("modal__pokemon__info")[0];
 const botonCerrarModal = document.getElementById("cerrar");
-const links = document.querySelectorAll(".header__link")
+const links = document.querySelectorAll(".header__link");
 
 const pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
@@ -32,10 +32,12 @@ function cambiarVista(evento){
     linkActivo.classList.remove("header__link__active")
 
     const enlace = evento.target
+
+    console.log(enlace)
     
     enlace.classList.add("header__link__active")
     
-    const pagina = enlace.getAttribute("href").slice(1)
+    const pagina = enlace.getAttribute("href").slice(1);
     
     document.getElementById(pagina).classList.remove("hidden")
 }
