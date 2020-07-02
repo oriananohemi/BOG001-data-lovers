@@ -222,11 +222,42 @@ footer p {
   background-color: white;
   height: 60%;
   margin: 100px auto;
-  width: 70%;
+  width: 90%;
 }
 
 .hidden {
   display: none;
+}
+
+.modal__img {
+  position: relative;
+  width: 70%;
+}
+
+.modal__image-pokemon {
+  position: absolute;
+  left: 170px;
+  bottom: 260px;
+  width: 40%;
+}
+
+.modal__features {
+  display: flex;
+  background: rgba(183, 65, 65, 0.3);
+  border-radius: 10px;
+  height: 200px;
+  width: 332px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.modal__features span {
+  font-weight: normal;
+}
+
+.modal__type {
+  background: rgba(196, 196, 196 ,0.5);
 }
 
 @media (min-width: 768px) {

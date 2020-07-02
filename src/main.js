@@ -31,10 +31,7 @@ function cambiarVista(evento){
     
     linkActivo.classList.remove("header__link__active")
 
-
-
     const enlace = evento.target
-
     
     enlace.classList.add("header__link__active")
     
@@ -225,7 +222,7 @@ function revisarBotonAtras(pagina){
 }
 
 function cambiarPagina(event){
-    window.scrollTo(0, 1)
+    window.scrollTo(0, 0)
     borrarContenido();    
     if(event.target.id === "siguiente"){
         paginaInicial ++;
@@ -254,9 +251,128 @@ function cerrarModal(){
 }
 
 function pintarPokemonEnModal(pokemon){
-    console.log(infoPokemon)
+    window.scrollTo(0, 0);
+    let datoTipo = ['']; 
+    let dato = ['']; 
+
+    for (let i = 0; i < pokemon.type.length; i++) {
+        switch (pokemon.type[i]){            
+            case 'Grass':
+                datoTipo += 'Yerba  '; 
+                break;
+            case 'Poison':
+                datoTipo += 'Veneno  ';
+                break;
+            case 'Fire':
+                datoTipo += 'Fuego  ';
+                break
+            case 'Flying':
+                datoTipo += 'Volador  ';
+                break
+            case 'Water':
+                datoTipo += 'Agua  ';
+                break    
+            case 'Bug':
+                datoTipo += 'Insecto  ';
+                break 
+            case 'Normal':
+                datoTipo += 'Normal  ';
+                break   
+            case 'Ground':
+                datoTipo += 'Tierra  ';
+                break 
+            case 'Electric':
+                datoTipo += "./image/vector_electrico.png";
+                break 
+            case 'Fighting':
+                datoTipo += 'Lucha  ';
+                break 
+            case 'Psychic':
+                datoTipo += 'Psiquico  ';
+                break 
+            case 'Rock':
+                datoTipo += 'Roca  ';
+                break  
+            case 'Ice':
+                datoTipo += 'Hielo  ';
+                break     
+            case 'Ghost':
+                datoTipo += 'Fantasma  ';
+                break 
+            case 'Dragon':
+                datoTipo += 'Dragon  ';
+                break                    
+        }         
+    }
+
+    for (let i = 0; i < pokemon.weaknesses.length; i++) {
+        switch (pokemon.weaknesses[i]){            
+            case 'Grass':
+                dato += 'Yerba  ';
+                break;
+            case 'Poison':
+                dato += 'Veneno  ';
+                break;
+            case 'Fire':
+                dato += 'Fuego  ';
+                break
+            case 'Flying':
+                dato += 'Volador  ';
+                break
+            case 'Water':
+                dato += 'Agua  ';
+                break    
+            case 'Bug':
+                dato += 'Insecto  ';
+                break 
+            case 'Normal':
+                dato += 'Normal  ';
+                break   
+            case 'Ground':
+                dato += 'Tierra  ';
+                break 
+            case 'Electric':
+                dato += 'Electrico  ';
+                break 
+            case 'Fighting':
+                dato += 'Lucha  ';
+                break 
+            case 'Psychic':
+                dato += 'Psiquico  ';
+                break 
+            case 'Rock':
+                dato += 'Roca  ';
+                break  
+            case 'Ice':
+                dato += 'Hielo  ';
+                break     
+            case 'Ghost':
+                dato += 'Fantasma  ';
+                break 
+            case 'Dragon':
+                dato += 'Dragon  ';
+                break                    
+        }         
+    }
+    
     infoPokemon.innerHTML = 
-    `<h2>${pokemon.name}</h2>`   
+    `<div>
+        <img class = "modal__img" src = "./image/pngflow.png" >
+        <img class = "modal__image-pokemon" src = "${pokemon.img}">
+    </div>
+    <h2>${pokemon.name} ID. ${pokemon.id}</h2>
+    <div class = "modal__features">
+        <div>
+            <p>Altura: <span> ${pokemon.height} </span></p>
+            <p>Peso: <span> ${pokemon.weight} </span></p>
+            <p>Caramelo: <span> ${pokemon.candy} </span></p>
+            <p>Recuento de Caramelos: <span> ${pokemon.candy_count} </span></p>
+        </div>
+        <div class = "modal__type">
+            <p>Tipo: ${datoTipo} </p>
+            <p>Debilidad: ${dato}</p>
+        </div>
+    </div>`   
 }
 
 botonSiguiente.addEventListener("click", cambiarPagina)
