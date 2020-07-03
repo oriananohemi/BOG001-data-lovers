@@ -121,6 +121,7 @@ body {
 .card__container {
   background-color: white;
   border: 1px solid black;
+  cursor: pointer;
   font-size: 18px;
   text-align: center;
   margin: 30px auto;
@@ -268,7 +269,7 @@ footer p {
   .header__menu {
   display: flex;
   justify-content: space-evenly;
-  background-color: #FFCB09;
+  /* background-color: #FFCB09; */
   border: 2px solid #1C2D61; 
   width: 95%;
   margin: 0 auto;
@@ -276,7 +277,6 @@ footer p {
 
   .header__menu li {
     width: 80%;
-    padding-left: 40px;
   }
 
   .header__menu__position {
@@ -285,12 +285,11 @@ footer p {
   
   .header__link {
     text-align: center;
-  color: #1C2D61;
   font-family: 'Staatliches', cursive;
   font-size: 23px;
   letter-spacing: 2px;
   border-right: 2px solid #1C2D61;
-  padding: 10px 0px; 
+  padding: 10px 0 10px 40px; 
   }
   
   .section__content {

@@ -1,13 +1,23 @@
 import data from './data/pokemon/pokemon.js';
-// import filtrar from './data';
+
+import { dataSort } from './data.js';
 
 const datosPokemon = data.pokemon
+const copydata = datosPokemon.slice()
+const datosOrdenados = dataSort(copydata)
+
 const containerPokemones = document.getElementById("pokemones")
+const containerPokemonesOrdenados = document.getElementById("pokemonesOrdenados")
+
 const botonSiguiente = document.getElementById("siguiente");
 const botonAnterior = document.getElementById("anterior");
 const menuHamburguesa = document.getElementById("menuTrigger");
+
+
 const modal = document.getElementById("modal");
 const main = document.getElementById("contenedorTodaData");
+
+
 const infoPokemon = document.getElementsByClassName("modal__pokemon__info")[0];
 const botonCerrarModal = document.getElementById("cerrar");
 const links = document.querySelectorAll(".header__link");
@@ -32,14 +42,14 @@ function cambiarVista(evento){
     linkActivo.classList.remove("header__link__active")
 
     const enlace = evento.target
-
-    console.log(enlace)
     
     enlace.classList.add("header__link__active")
     
     const pagina = enlace.getAttribute("href").slice(1);
     
     document.getElementById(pagina).classList.remove("hidden")
+
+    mostrarPokemon(pagina)
 }
 
 function paginate(array, page_size, page_number) {      
@@ -193,12 +203,23 @@ function crearPokemonCard(pokemon){
     card.addEventListener("click", () => abrirModal(pokemon))
     
     return card
+
 }
 
-function mostrarPokemon(){
-    let pagination = paginate(datosPokemon,pokemonesPorPagina,paginaInicial);
+function mostrarPokemon(pagina){
+    let datosAPintar;
+    let contenedorPokemones; 
+
+    if(pagina === 'ordenar') {
+        datosAPintar = datosOrdenados;
+        contenedorPokemones = containerPokemonesOrdenados;
+    } else {
+        datosAPintar = datosPokemon;
+        contenedorPokemones = containerPokemones;
+    }
+    let pagination = paginate(datosAPintar,pokemonesPorPagina,paginaInicial);
     pagination.forEach((pokemon) => {
-        containerPokemones.appendChild(crearPokemonCard(pokemon))
+        contenedorPokemones.appendChild(crearPokemonCard(pokemon))
     })
 }
 
@@ -382,6 +403,5 @@ botonAnterior.addEventListener("click", cambiarPagina)
 menuHamburguesa.addEventListener("click", abrirMenu)
 botonCerrarModal.addEventListener("click", cerrarModal)
 
-mostrarPokemon();
 revisarBotonAtras(paginaInicial);
 revisarBotonSiguiente(paginaInicial);

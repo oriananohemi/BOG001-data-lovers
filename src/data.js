@@ -1,10 +1,9 @@
 
-export const filterData = (data, condition) => {
-  data.filter(dato => {
-    dato.type === condition})
+export const example = () => {
   return 'example';
 };
 
-// export const sortData = (data, sortBy, sortOrder) => {
-//   return 'OMG';
-// };
+export const dataSort = (data) => {
+  const dataOrdenada = data.reverse()
+  return dataOrdenada;
+};
