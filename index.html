@@ -2,42 +2,134 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PokemonDEX</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div id="root">
-      <header>
-        <img src="" alt="">
-      </header>
-      <main>
+      <header class="header">
+        <div class="header__brand">
+          <img src="image/Rectangle 1.png" alt="">
+          <h2 class="header__brand__title">POKEDEX-CODE</h2>
+        </div>
         <nav>
-          <ul>
-            <li><a href="">Inicio</a></li>
-            <li><a href="">Pokedex</a></li>
-            <li><a href="">Ordenar</a></li>
-            <li><a href="">Buscar</a></li>
+          <i id="menuTrigger" class="fas fa-bars"></i>
+          <ul class="header__menu header__menu__position" id="menu">
+            <li>
+              <a class="header__link header__link__active" href="#inicio">
+                <i class="fas fa-home" ></i>
+                INICIO
+              </a>
+            </li>
+            <li>
+              <a class="header__link" href="#pokedex">
+                <i class="fas fa-gamepad" ></i>
+                POKEDEX
+              </a>
+            </li>
+            <li>
+              <a class="header__link" href="#ordenar">
+                <i class="fas fa-sort"></i>
+                ORDENAR
+              </a>
+            </li>
+            <li>
+              <a class="header__link" href="#buscar">
+                <i class="fas fa-search"></i>
+                BUSCAR
+              </a>
+            </li>
           </ul>
         </nav>
-        <section class="section" id="pokemones">
-        </section>
-        <div>
-          <button id="anterior">Anterior</button>
-          <button id="siguiente">Siguiente</button>
+      </header>
+
+      <main class="main">
+
+        <div id="inicio" class="paginas hidden">
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum omnis nostrum hic cum odio alias, fugit quia corporis repudiandae. Nesciunt ipsam eius nemo fugit nostrum similique voluptatum voluptatibus quisquam adipisci.</p>
         </div>
-        <section>
-          <img src="" alt="">
-          <h2>Vamos A Jugar</h2>
-        </section>
+
+        <div id="pokedex" class="paginas hidden">
+          <div id="contenedorTodaData">
+            <section class="section__content" id="pokemones">
+            </section>
+            <div class="button__container">
+              <button class="button" id="anterior">Anterior</button>
+              <button class="button" id="siguiente">Siguiente</button>
+            </div>
+            <a href="https://pokemongolive.com/es/" target="_blank">
+              <div class="section__link">
+                <img class="section__link__image" src="image//logo.png" alt="">
+                <h2 class="section__link__title">VAMOS A JUGAR</h2>
+              </div>
+            </a>
+          </div>
+          <section id="modal" class="hidden">
+            <div class="modal__pokemon__info">
+            </div>
+            <button id="cerrar" class="button">Regresar</button>
+          </section>
+        </div>
+
+        <div id="ordenar" class="paginas hidden">
+          <div id="contenedorTodaData">
+            <section class="section__content" id="pokemonesOrdenados">
+            </section>
+            <div class="button__container">
+              <button class="button" id="anterior">Anterior</button>
+              <button class="button" id="siguiente">Siguiente</button>
+            </div>
+            <a href="https://pokemongolive.com/es/" target="_blank">
+              <div class="section__link">
+                <img class="section__link__image" src="image//logo.png" alt="">
+                <h2 class="section__link__title">VAMOS A JUGAR</h2>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <div id="buscar" class="paginas hidden">
+          <h2>Buscar</h2>
+          <label>Filtrar por tipo</label>
+          <select name="selectType" id="buscar__type">
+            <option selected value="">Elige una opcion</option> 
+            <option value="Yerba">Yerba</option> 
+            <option value="Veneno">Veneno</option>
+            <option value="Fuego">Fuego</option>
+            <option value="Volador">Volador</option> 
+            <option value="Agua">Agua</option>
+            <option value="Insecto">Insecto</option>
+            <option value="Normal">Normal</option> 
+            <option value="Tierra">Tierra</option>
+            <option value="Electrico">Electricoo</option>
+            <option value="Lucha">Lucha</option> 
+            <option value="Psiquico">Psiquico</option>
+            <option value="Rock">Roca</option>
+            <option value="Hielo">Hielo</option> 
+            <option value="Fantasma">Fantasma</option>
+            <option value="Dragon">Dragon</option>
+          </select>  
+          <section class="section__content" id="pruebaFiltro">
+          </section>        
+        </div>
       </main>
-      <footer>
+
+      <footer class="container__flex">
         <div>
+          <p>Tu guia pokemon</p>
+          <p>Hecho con amor</p>
+          <p>Derechos reservados OS</p>
+          <p class="footer__copy">Copyrigth 2020</p>
+        </div>
+        <div class="footer__icons">
           <i class="fab fa-facebook-f"></i>
           <i class="fab fa-instagram"></i>
           <i class="fab fa-youtube"></i>
         </div>
       </footer>
-    </div>
+    </div> 
     <script src="main.js" type="module"></script>
     <script src="https://kit.fontawesome.com/9fa96555ef.js"></script>
   </body>
