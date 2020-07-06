@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scale=no">
-    <title>PokemonDEX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>POKEDEX-CODE</title>
+    <link rel="shortcut icon" href="image/Rectangle 1.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -51,68 +52,67 @@
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum omnis nostrum hic cum odio alias, fugit quia corporis repudiandae. Nesciunt ipsam eius nemo fugit nostrum similique voluptatum voluptatibus quisquam adipisci.</p>
         </div>
 
-        <div id="pokedex" class="paginas hidden">
-          <div id="contenedorTodaData">
-            <section class="section__content" id="pokemones">
-            </section>
-            <div class="button__container">
-              <button class="button" id="anterior">Anterior</button>
-              <button class="button" id="siguiente">Siguiente</button>
+        <div id="contenedorTodaData">
+          <div id="pokedex" class="paginas hidden">
+            <div>
+              <section class="section__content" id="pokemones">
+              </section>
             </div>
-            <a href="https://pokemongolive.com/es/" target="_blank">
-              <div class="section__link">
-                <img class="section__link__image" src="image//logo.png" alt="">
-                <h2 class="section__link__title">VAMOS A JUGAR</h2>
-              </div>
-            </a>
           </div>
-
-          <section id="modal" class="hidden">
-            <div class="modal__pokemon__info">
+  
+          <div id="ordenar" class="paginas hidden">
+            <select name="ordenarBy" id="ordenarPorNombre" class="select">
+              <option selected  class="fas fa-sort-alpha-alt" value="ascendente">Ascendente</option>
+              <option class="fas fa-sort-alpha-down" value="descendente">Descendente</option>
+            </select>
+            <div id="contenedorTodaData">
+              <section class="section__content" id="pokemonesOrdenados">
+              </section>
             </div>
-            <div class="contenedor__button">
-              <button id="cerrar" class="modal__button">Regresar</button>
-            </div>
-          </section>
+  
+          </div>
+          <div class="button__container hidden">
+            <button class="button" id="anterior">Anterior</button>
+            <button class="button" id="siguiente">Siguiente</button>
+          </div>
         </div>
+        <section id="modal" class="hidden">
+              <div class="modal__pokemon__info">
+              </div>
+              <button id="cerrar" class="button">Regresar</button>
+        </section>
 
-<!--        <div id="ordenar" class="paginas hidden">
-          <div id="contenedorTodaData">
-            <section class="section__content" id="pokemonesOrdenados">
-            </section>
-            <div class="button__container">
-              <button class="button" id="anterior">Anterior</button>
-              <button class="button" id="siguiente">Siguiente</button>
-            </div>
-          </div>
-        </div> --->
-                             
         <div id="buscar" class="paginas hidden">
           <h2>Buscar</h2>
-          <div class="select">
-            <label>Filtrar por tipo</label>
-            <select class="select__type" name="selectType" id="buscar__type">
-              <option selected value="">Elige una opcion</option> 
-              <option value="Yerba">Yerba</option> 
-              <option value="Veneno">Veneno</option>
-              <option value="Fuego">Fuego</option>
-              <option value="Volador">Volador</option> 
-              <option value="Agua">Agua</option>
-              <option value="Insecto">Insecto</option>
-              <option value="Normal">Normal</option> 
-              <option value="Tierra">Tierra</option>
-              <option value="Electrico">Electricoo</option>
-              <option value="Lucha">Lucha</option> 
-              <option value="Psiquico">Psiquico</option>
-              <option value="Roca">Roca</option>
-              <option value="Hielo">Hielo</option> 
-              <option value="Fantasma">Fantasma</option>
-              <option value="Dragon">Dragon</option>
-            </select>
-          </div>    
+          <label>Filtrar por tipo</label>
+          <select name="selectType" id="buscar__type" class="select">
+            <option selected value="">Elige una opcion</option> 
+            <option value="Yerba">Yerba</option> 
+            <option value="Veneno">Veneno</option>
+            <option value="Fuego">Fuego</option>
+            <option value="Volador">Volador</option> 
+            <option value="Agua">Agua</option>
+            <option value="Insecto">Insecto</option>
+            <option value="Normal">Normal</option> 
+            <option value="Tierra">Tierra</option>
+            <option value="Electrico">Electricoo</option>
+            <option value="Lucha">Lucha</option> 
+            <option value="Psiquico">Psiquico</option>
+            <option value="Rock">Roca</option>
+            <option value="Hielo">Hielo</option> 
+            <option value="Fantasma">Fantasma</option>
+            <option value="Dragon">Dragon</option>
+          </select>  
           <section class="section__content" id="pruebaFiltro">
           </section>        
         </div>
+
+        <a href="https://pokemongolive.com/es/" target="_blank">
+          <div class="section__link">
+            <img class="section__link__image" src="image//logo.png" alt="">
+            <h2 class="section__link__title">VAMOS A JUGAR</h2>
+          </div>
+        </a>
       </main>
 
       <footer class="container__flex">
