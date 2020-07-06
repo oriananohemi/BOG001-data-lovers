@@ -51,7 +51,7 @@ body {
 }
 
 .main {
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .header__brand {
@@ -316,6 +316,10 @@ footer p {
   justify-content: space-evenly;
 }
 
+.paginas {
+  text-align: center;
+}
+
 @media (min-width: 500px) {
 
   .modal__img {
@@ -338,11 +342,16 @@ footer p {
   }
 }
 /* PRUEBA */
-.debilidades {
+/* .debilidades {
   word-break: break-all;
-}
+} */
 
 @media (min-width: 768px) {
+
+  .main {
+    margin-top: 150px;
+  }
+  
 
   .fas.fa-bars {
   display: none;

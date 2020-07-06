@@ -36,7 +36,6 @@ function agregarEscuchador(){
 
 function cambiarVista(evento){    
     document.querySelectorAll(".paginas").forEach(vista => vista.classList.add("hidden"))
-    document.querySelectorAll(".button__container").forEach(boton => boton.classList.add("hidden"))
     const linkActivo = document.querySelector(".header__link__active")
     linkActivo.classList.remove("header__link__active")
 
@@ -111,7 +110,6 @@ function mostrarPokemon(vista){
         const containerPokemonesOrdenados = document.getElementById("pokemonesOrdenados");
         containerPokemonesOrdenados.innerHTML = '';
         let formaOrdenar = ordenar.value;
-        paginaInicial = 1
         const d = datosPokemon.slice()
         datosAPintar = funciones.sortData(d, 'name', formaOrdenar );
         contenedorPokemones = containerPokemonesOrdenados;
@@ -119,7 +117,6 @@ function mostrarPokemon(vista){
         datosAPintar = datosPokemon;
         contenedorPokemones = containerPokemones;
     }
-    document.getElementsByClassName('button__container')[0].classList.remove("hidden")
     let pagination = paginate(datosAPintar,pokemonesPorPagina,paginaInicial);
 
     pagination.forEach((pokemon) => {
