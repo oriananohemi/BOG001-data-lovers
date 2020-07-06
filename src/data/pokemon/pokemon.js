@@ -116,7 +116,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "005",
@@ -145,7 +145,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "004",
@@ -175,7 +175,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "004",
@@ -288,7 +288,7 @@ export default {
     "weaknesses": [
       "Fuego",
       "Volador",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "011",
@@ -320,7 +320,7 @@ export default {
     "weaknesses": [
       "Fuego",
       "Volador",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "010",
@@ -352,7 +352,7 @@ export default {
       "Electrico",
       "Hielo",
       "Volador",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "010",
@@ -386,7 +386,7 @@ export default {
       "Fuego",
       "Volador",
       "Psiquico",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "014",
@@ -420,7 +420,7 @@ export default {
       "Fuego",
       "Volador",
       "Psiquico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "013",
@@ -451,7 +451,7 @@ export default {
       "Fuego",
       "Volador",
       "Psiquico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "013",
@@ -483,7 +483,7 @@ export default {
     ],
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "017",
@@ -512,7 +512,7 @@ export default {
     "multipliers": [1.79],
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "016",
@@ -541,7 +541,7 @@ export default {
     "multipliers": null,
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "016",
@@ -623,7 +623,7 @@ export default {
     ],
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "022",
@@ -648,7 +648,7 @@ export default {
     "multipliers": null,
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "021",
@@ -990,14 +990,14 @@ export default {
   }, {
     "id": 35,
     "num": "035",
-    "name": "Clefairy",
+    "name": "CleHada",
     "img": "http://www.serebii.net/pokemongo/pokemon/035.png",
     "type": [
       "Normal"
     ],
     "height": "0.61 m",
     "weight": "7.5 kg",
-    "candy": "Clefairy Candy",
+    "candy": "CleHada Candy",
     "candy_count": 50,
     "egg": "2 km",
     "spawn_chance": 0.92,
@@ -1024,7 +1024,7 @@ export default {
     ],
     "height": "1.30 m",
     "weight": "40.0 kg",
-    "candy": "Clefairy Candy",
+    "candy": "CleHada Candy",
     "egg": "Not in Eggs",
     "spawn_chance": 0.012,
     "avg_spawns": 1.2,
@@ -1035,7 +1035,7 @@ export default {
     ],
     "prev_evolution": [{
       "num": "035",
-      "name": "Clefairy"
+      "name": "CleHada"
     }]
   }, {
     "id": 37,
@@ -1060,7 +1060,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "038",
@@ -1085,7 +1085,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "037",
@@ -1163,7 +1163,7 @@ export default {
       "Electrico",
       "Hielo",
       "Psiquico",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "042",
@@ -1190,7 +1190,7 @@ export default {
       "Electrico",
       "Hielo",
       "Psiquico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "041",
@@ -1313,7 +1313,7 @@ export default {
       "Veneno",
       "Volador",
       "Insecto",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "047",
@@ -1342,7 +1342,7 @@ export default {
       "Veneno",
       "Volador",
       "Insecto",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "046",
@@ -1373,7 +1373,7 @@ export default {
       "Fuego",
       "Volador",
       "Psiquico",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "049",
@@ -1400,7 +1400,7 @@ export default {
       "Fuego",
       "Volador",
       "Psiquico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "048",
@@ -1576,7 +1576,7 @@ export default {
     "weaknesses": [
       "Volador",
       "Psiquico",
-      "Fairy"
+      "Hada"
     ],
     "next_evolution": [{
       "num": "057",
@@ -1601,7 +1601,7 @@ export default {
     "weaknesses": [
       "Volador",
       "Psiquico",
-      "Fairy"
+      "Hada"
     ],
     "prev_evolution": [{
       "num": "056",
@@ -1630,7 +1630,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "059",
@@ -1655,7 +1655,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "058",
@@ -1743,7 +1743,7 @@ export default {
       "Yerba",
       "Volador",
       "Psiquico",
-      "Fairy"
+      "Hada"
     ],
     "prev_evolution": [{
       "num": "060",
@@ -1775,7 +1775,7 @@ export default {
     "weaknesses": [
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "next_evolution": [{
       "num": "064",
@@ -1804,7 +1804,7 @@ export default {
     "weaknesses": [
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "prev_evolution": [{
       "num": "063",
@@ -1833,7 +1833,7 @@ export default {
     "weaknesses": [
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "prev_evolution": [{
       "num": "063",
@@ -1865,7 +1865,7 @@ export default {
     "weaknesses": [
       "Volador",
       "Psiquico",
-      "Fairy"
+      "Hada"
     ],
     "next_evolution": [{
       "num": "067",
@@ -1894,7 +1894,7 @@ export default {
     "weaknesses": [
       "Volador",
       "Psiquico",
-      "Fairy"
+      "Hada"
     ],
     "prev_evolution": [{
       "num": "066",
@@ -1923,7 +1923,7 @@ export default {
     "weaknesses": [
       "Volador",
       "Psiquico",
-      "Fairy"
+      "Hada"
     ],
     "prev_evolution": [{
       "num": "066",
@@ -2084,7 +2084,7 @@ export default {
     "name": "Geodude",
     "img": "http://www.serebii.net/pokemongo/pokemon/074.png",
     "type": [
-      "Rock",
+      "Roca",
       "Tierra"
     ],
     "height": "0.41 m",
@@ -2120,7 +2120,7 @@ export default {
     "name": "Graveler",
     "img": "http://www.serebii.net/pokemongo/pokemon/075.png",
     "type": [
-      "Rock",
+      "Roca",
       "Tierra"
     ],
     "height": "0.99 m",
@@ -2157,7 +2157,7 @@ export default {
     "name": "Golem",
     "img": "http://www.serebii.net/pokemongo/pokemon/076.png",
     "type": [
-      "Rock",
+      "Roca",
       "Tierra"
     ],
     "height": "1.40 m",
@@ -2206,7 +2206,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "078",
@@ -2231,7 +2231,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "077",
@@ -2260,7 +2260,7 @@ export default {
       "Yerba",
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "next_evolution": [{
       "num": "080",
@@ -2288,7 +2288,7 @@ export default {
       "Yerba",
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "prev_evolution": [{
       "num": "079",
@@ -2367,7 +2367,7 @@ export default {
     "multipliers": null,
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ]
   }, {
     "id": 84,
@@ -2392,7 +2392,7 @@ export default {
     ],
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "next_evolution": [{
       "num": "085",
@@ -2417,7 +2417,7 @@ export default {
     "multipliers": null,
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "084",
@@ -2472,7 +2472,7 @@ export default {
       "Electrico",
       "Yerba",
       "Lucha",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "086",
@@ -2573,7 +2573,7 @@ export default {
       "Electrico",
       "Yerba",
       "Lucha",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "090",
@@ -2601,7 +2601,7 @@ export default {
       "Tierra",
       "Psiquico",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "next_evolution": [{
       "num": "093",
@@ -2635,7 +2635,7 @@ export default {
       "Tierra",
       "Psiquico",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "prev_evolution": [{
       "num": "092",
@@ -2666,7 +2666,7 @@ export default {
       "Tierra",
       "Psiquico",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "prev_evolution": [{
       "num": "092",
@@ -2681,7 +2681,7 @@ export default {
     "name": "Onix",
     "img": "http://www.serebii.net/pokemongo/pokemon/095.png",
     "type": [
-      "Rock",
+      "Roca",
       "Tierra"
     ],
     "height": "8.79 m",
@@ -2723,7 +2723,7 @@ export default {
     "weaknesses": [
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "next_evolution": [{
       "num": "097",
@@ -2748,7 +2748,7 @@ export default {
     "weaknesses": [
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "prev_evolution": [{
       "num": "096",
@@ -2884,7 +2884,7 @@ export default {
       "Volador",
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "next_evolution": [{
       "num": "103",
@@ -2914,7 +2914,7 @@ export default {
       "Volador",
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "prev_evolution": [{
       "num": "102",
@@ -2990,7 +2990,7 @@ export default {
     "weaknesses": [
       "Volador",
       "Psiquico",
-      "Fairy"
+      "Hada"
     ]
   }, {
     "id": 107,
@@ -3011,7 +3011,7 @@ export default {
     "weaknesses": [
       "Volador",
       "Psiquico",
-      "Fairy"
+      "Hada"
     ]
   }, {
     "id": 108,
@@ -3088,7 +3088,7 @@ export default {
     "img": "http://www.serebii.net/pokemongo/pokemon/111.png",
     "type": [
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "height": "0.99 m",
     "weight": "115.0 kg",
@@ -3118,7 +3118,7 @@ export default {
     "img": "http://www.serebii.net/pokemongo/pokemon/112.png",
     "type": [
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "height": "1.91 m",
     "weight": "120.0 kg",
@@ -3352,7 +3352,7 @@ export default {
       "Yerba",
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ],
     "prev_evolution": [{
       "num": "120",
@@ -3377,7 +3377,7 @@ export default {
     "weaknesses": [
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ]
   }, {
     "id": 123,
@@ -3401,7 +3401,7 @@ export default {
       "Electrico",
       "Hielo",
       "Volador",
-      "Rock"
+      "Roca"
     ]
   }, {
     "id": 124,
@@ -3423,9 +3423,9 @@ export default {
     "weaknesses": [
       "Fuego",
       "Insecto",
-      "Rock",
+      "Roca",
       "Fantasma",
-      "Dark",
+      "Oscuro",
       "Steel"
     ]
   }, {
@@ -3466,7 +3466,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ]
   }, {
     "id": 127,
@@ -3487,7 +3487,7 @@ export default {
     "weaknesses": [
       "Fuego",
       "Volador",
-      "Rock"
+      "Roca"
     ]
   }, {
     "id": 128,
@@ -3555,7 +3555,7 @@ export default {
     "multipliers": null,
     "weaknesses": [
       "Electrico",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "129",
@@ -3582,7 +3582,7 @@ export default {
       "Electrico",
       "Yerba",
       "Lucha",
-      "Rock"
+      "Roca"
     ]
   }, {
     "id": 132,
@@ -3702,7 +3702,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Tierra",
-      "Rock"
+      "Roca"
     ],
     "prev_evolution": [{
       "num": "133",
@@ -3733,7 +3733,7 @@ export default {
     "name": "Omanyte",
     "img": "http://www.serebii.net/pokemongo/pokemon/138.png",
     "type": [
-      "Rock",
+      "Roca",
       "Agua"
     ],
     "height": "0.41 m",
@@ -3761,7 +3761,7 @@ export default {
     "name": "Omastar",
     "img": "http://www.serebii.net/pokemongo/pokemon/139.png",
     "type": [
-      "Rock",
+      "Roca",
       "Agua"
     ],
     "height": "0.99 m",
@@ -3788,7 +3788,7 @@ export default {
     "name": "Kabuto",
     "img": "http://www.serebii.net/pokemongo/pokemon/140.png",
     "type": [
-      "Rock",
+      "Roca",
       "Agua"
     ],
     "height": "0.51 m",
@@ -3819,7 +3819,7 @@ export default {
     "name": "Kabutops",
     "img": "http://www.serebii.net/pokemongo/pokemon/141.png",
     "type": [
-      "Rock",
+      "Roca",
       "Agua"
     ],
     "height": "1.30 m",
@@ -3846,7 +3846,7 @@ export default {
     "name": "Aerodactyl",
     "img": "http://www.serebii.net/pokemongo/pokemon/142.png",
     "type": [
-      "Rock",
+      "Roca",
       "Volador"
     ],
     "height": "1.80 m",
@@ -3861,7 +3861,7 @@ export default {
       "Agua",
       "Electrico",
       "Hielo",
-      "Rock",
+      "Roca",
       "Steel"
     ]
   }, {
@@ -3903,7 +3903,7 @@ export default {
     "weaknesses": [
       "Fuego",
       "Electrico",
-      "Rock",
+      "Roca",
       "Steel"
     ]
   }, {
@@ -3925,7 +3925,7 @@ export default {
     "multipliers": null,
     "weaknesses": [
       "Hielo",
-      "Rock"
+      "Roca"
     ]
   }, {
     "id": 146,
@@ -3947,7 +3947,7 @@ export default {
     "weaknesses": [
       "Agua",
       "Electrico",
-      "Rock"
+      "Roca"
     ]
   }, {
     "id": 147,
@@ -3972,7 +3972,7 @@ export default {
     "weaknesses": [
       "Hielo",
       "Dragon",
-      "Fairy"
+      "Hada"
     ],
     "next_evolution": [{
       "num": "148",
@@ -4001,7 +4001,7 @@ export default {
     "weaknesses": [
       "Hielo",
       "Dragon",
-      "Fairy"
+      "Hada"
     ],
     "prev_evolution": [{
       "num": "147",
@@ -4030,9 +4030,9 @@ export default {
     "multipliers": null,
     "weaknesses": [
       "Hielo",
-      "Rock",
+      "Roca",
       "Dragon",
-      "Fairy"
+      "Hada"
     ],
     "prev_evolution": [{
       "num": "147",
@@ -4060,7 +4060,7 @@ export default {
     "weaknesses": [
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ]
   }, {
     "id": 151,
@@ -4081,7 +4081,7 @@ export default {
     "weaknesses": [
       "Insecto",
       "Fantasma",
-      "Dark"
+      "Oscuro"
     ]
   }]
 };

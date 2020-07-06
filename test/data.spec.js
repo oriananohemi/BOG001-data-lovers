@@ -1,18 +1,26 @@
-import { example, anotherExample } from '../src/data.js';
+import funciones from '../src/data';
+import data from '../src/data/pokemon/pokemon.js';
 
 
-describe('example', () => {
+describe('funciones.filterData', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof funciones.filterData).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('Deberia devolver un objeto para tipo Fuego', () => {
+    expect(typeof funciones.filterData(data.pokemon, "Fuego")).toBe('object');
   });
-});
 
+  it('Deberia devolver Pikachu para tipo Electrico', () => {
+    expect(funciones.filterData(data.pokemon, "Electrico")[1].name).toEqual('Pikachu');
+  });
 
-describe('anotherExample', () => {
+  it('Deberia devolver un arreglo de 4 elementos para tipo Dragon', () => {
+    expect(funciones.filterData(data.pokemon, "Dragon")).toHaveLength(4);
+  });
+ });
+
+/*describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
   });
@@ -20,4 +28,4 @@ describe('anotherExample', () => {
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   });
-});
+});*/

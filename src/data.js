@@ -15,6 +15,7 @@
       }      
     }
     return filtro;
+    //console.log(filtro);
   }
  }
 // export const sortData = (data, sortBy, sortOrder) => {

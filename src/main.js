@@ -176,21 +176,25 @@ function pintarPokemonEnModal(pokemon){
     window.scrollTo(0, 0);
         
     infoPokemon.innerHTML = 
-    `<div>
+    `<div class = "modal__container-img">
         <img class = "modal__img" src = "./image/pngflow.png" >
         <img class = "modal__image-pokemon" src = "${pokemon.img}">
     </div>
-    <h2>${pokemon.name} ID. ${pokemon.id}</h2>
-    <div class = "modal__features">
-        <div>
-            <p>Altura: <span> ${pokemon.height} </span></p>
-            <p>Peso: <span> ${pokemon.weight} </span></p>
-            <p>Caramelo: <span> ${pokemon.candy} </span></p>
-            <p>Recuento de Caramelos: <span> ${pokemon.candy_count} </span></p>
-        </div>
-        <div class = "modal__type">
-            <p>Tipo: ${pokemon.type} </p>
-            <p>Debilidad: ${pokemon.weaknesses}</p>
+    <div class = "modal__container-info">
+        <h2>${pokemon.name} ID. ${pokemon.id}</h2>
+        <div class = "modal__features">
+            <div>
+                <p>Altura: <span> ${pokemon.height} </span></p>
+                <p>Peso: <span> ${pokemon.weight} </span></p>
+                <p>Caramelo: <span> ${pokemon.candy} </span></p>
+                <p>Recuento de Caramelos: <span> ${pokemon.candy_count} </span></p>
+            </div>
+            <div class = "modal__type">
+                <p>Tipo: </p>
+                <p>${pokemon.type}</p>
+                <p>Debilidad: </p>
+                <p>${pokemon.weaknesses}</p>
+            </div>
         </div>
     </div>`   
 }

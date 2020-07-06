@@ -66,14 +66,17 @@
               </div>
             </a>
           </div>
+
           <section id="modal" class="hidden">
             <div class="modal__pokemon__info">
             </div>
-            <button id="cerrar" class="button">Regresar</button>
+            <div class="contenedor__button">
+              <button id="cerrar" class="modal__button">Regresar</button>
+            </div>
           </section>
         </div>
 
-        <div id="ordenar" class="paginas hidden">
+<!--        <div id="ordenar" class="paginas hidden">
           <div id="contenedorTodaData">
             <section class="section__content" id="pokemonesOrdenados">
             </section>
@@ -81,36 +84,32 @@
               <button class="button" id="anterior">Anterior</button>
               <button class="button" id="siguiente">Siguiente</button>
             </div>
-            <a href="https://pokemongolive.com/es/" target="_blank">
-              <div class="section__link">
-                <img class="section__link__image" src="image//logo.png" alt="">
-                <h2 class="section__link__title">VAMOS A JUGAR</h2>
-              </div>
-            </a>
           </div>
-        </div>
-        
+        </div> --->
+                             
         <div id="buscar" class="paginas hidden">
           <h2>Buscar</h2>
-          <label>Filtrar por tipo</label>
-          <select name="selectType" id="buscar__type">
-            <option selected value="">Elige una opcion</option> 
-            <option value="Yerba">Yerba</option> 
-            <option value="Veneno">Veneno</option>
-            <option value="Fuego">Fuego</option>
-            <option value="Volador">Volador</option> 
-            <option value="Agua">Agua</option>
-            <option value="Insecto">Insecto</option>
-            <option value="Normal">Normal</option> 
-            <option value="Tierra">Tierra</option>
-            <option value="Electrico">Electricoo</option>
-            <option value="Lucha">Lucha</option> 
-            <option value="Psiquico">Psiquico</option>
-            <option value="Rock">Roca</option>
-            <option value="Hielo">Hielo</option> 
-            <option value="Fantasma">Fantasma</option>
-            <option value="Dragon">Dragon</option>
-          </select>  
+          <div class="select">
+            <label>Filtrar por tipo</label>
+            <select class="select__type" name="selectType" id="buscar__type">
+              <option selected value="">Elige una opcion</option> 
+              <option value="Yerba">Yerba</option> 
+              <option value="Veneno">Veneno</option>
+              <option value="Fuego">Fuego</option>
+              <option value="Volador">Volador</option> 
+              <option value="Agua">Agua</option>
+              <option value="Insecto">Insecto</option>
+              <option value="Normal">Normal</option> 
+              <option value="Tierra">Tierra</option>
+              <option value="Electrico">Electricoo</option>
+              <option value="Lucha">Lucha</option> 
+              <option value="Psiquico">Psiquico</option>
+              <option value="Roca">Roca</option>
+              <option value="Hielo">Hielo</option> 
+              <option value="Fantasma">Fantasma</option>
+              <option value="Dragon">Dragon</option>
+            </select>
+          </div>    
           <section class="section__content" id="pruebaFiltro">
           </section>        
         </div>

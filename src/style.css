@@ -51,7 +51,7 @@ body {
 }
 
 .main {
-  margin-top: 140px;
+  margin-top: 90px;
 }
 
 .header__brand {
@@ -106,7 +106,7 @@ body {
 }
 
 .header__link__active {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 .fas {
@@ -122,10 +122,15 @@ body {
   background-color: white;
   border: 1px solid black;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 13px;
   text-align: center;
   margin: 30px auto;
+  overflow-wrap: anywhere;
   box-shadow: 7px 7px 14px -6px rgba(0,0,0,0.75);
+}
+
+.pintarTitulo {
+  font-size: 2.5em;
 }
 
 .card__image {
@@ -221,7 +226,7 @@ footer p {
 
 .modal__pokemon__info {
   height: 60%;
-  margin: 100px auto;
+  margin: 20px auto;
   width: 90%;
 }
 
@@ -229,23 +234,34 @@ footer p {
   display: none;
 }
 
-.modal__img {
+.modal__container-img {
+  display: flex;
   position: relative;
-  width: 70%;
+  justify-content: center;
+}
+
+.modal__container-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal__img {
+   width: 70%;
 }
 
 .modal__image-pokemon {
   position: absolute;
-  left: 170px;
-  bottom: 260px;
+  left: 50%;
+  top: 10%;
   width: 40%;
 }
 
-.modal__features {
+.modal__features {  
   display: flex;
   background: rgba(183, 65, 65, 0.3);
   border-radius: 10px;
-  height: 200px;
+  height: 90%;
   width: 332px;
   padding: 10px 10px;
   font-size: 16px;
@@ -258,6 +274,57 @@ footer p {
 
 .modal__type {
   background: rgba(196, 196, 196 ,0.5);
+  width: 55%;   
+  overflow-wrap: anywhere;
+  padding: 10px 0px;
+}
+
+.contenedor__button {
+  margin: 40px auto;
+  text-align: center;
+}
+
+.modal__button {  
+  left: 100px;
+  bottom: -40px;
+  margin: 0px 10px;
+  width: 135px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #1C2D61;
+  color: #1C2D61;
+  outline: none;
+  font-family: 'Staatliches', cursive;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.select {
+  display: flex;  
+  padding: 20px;
+  justify-content: space-evenly;
+}
+
+@media (min-width: 500px) {
+
+  .modal__img {
+    width: 50%;
+ }
+
+  .modal__image-pokemon {
+    width: 25%;
+  }
+}
+
+@media (min-width: 650px) {
+
+  .modal__img {
+    width: 40%;
+ }
+
+  .modal__image-pokemon {
+    width: 20%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -285,11 +352,11 @@ footer p {
   
   .header__link {
     text-align: center;
-  font-family: 'Staatliches', cursive;
-  font-size: 23px;
-  letter-spacing: 2px;
-  border-right: 2px solid #1C2D61;
-  padding: 10px 0 10px 40px; 
+    font-family: 'Staatliches', cursive;
+    font-size: 23px;
+    letter-spacing: 2px;
+    border-right: 2px solid #1C2D61;
+    padding: 10px 0 10px 40px; 
   }
   
   .section__content {
@@ -301,8 +368,33 @@ footer p {
   }
 
   .card__container {
-  flex-wrap: wrap;
-  width: 40%;
+    flex-wrap: wrap;
+    width: 40%;
+  }
+
+  .modal__pokemon__info {
+    display: flex;
+    padding-top: 120px;
+  }
+
+  .modal__features {
+    height: 60%;
+    width: 332px;
+    padding: 15px 10px;
+    font-size: 17px;    
+  }
+
+  .contenedor__button {
+    margin: 30px auto;
+  }
+
+  .modal__img {
+    width: 90%;
+  }
+ 
+  .modal__image-pokemon {
+    top: 20%;
+    width: 40%;
   }
 
 }
@@ -327,15 +419,30 @@ footer p {
 
   .card__container {
     margin: 15px;
-    }
-  
+  }
+
+  .modal__pokemon__info {
+    border: 3px solid #EA1C27;
+    margin-top: 150px;
+    padding-top: 50px;
+    width: 80%;
+    box-shadow: 7px 7px 14px -6px rgba(0,0,0,0.75);
+    border-radius: 5px;
+  }  
 }
 
 @media (min-width: 1201px){
   .card__container {
     flex: 1 1 20%;
   }
+
   .section__link img {
     width: 400px;
+  }
+
+  .modal__pokemon__info {
+    justify-content: center;
+    width: 60%;
+    margin-top: 180px;
   }
 }
