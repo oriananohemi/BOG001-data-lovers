@@ -19,8 +19,6 @@ const menuHamburguesa = document.getElementById("menuTrigger");
 const selectFiltrar = document.getElementById('buscar__type');
 const ordenar = document.getElementById('ordenarPorNombre');
 
-
-
 const pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
 
@@ -35,9 +33,11 @@ function agregarEscuchador(){
 }
 
 function cambiarVista(evento){    
+    revisarBotonAtras("1")
     document.querySelectorAll(".paginas").forEach(vista => vista.classList.add("hidden"))
     const linkActivo = document.querySelector(".header__link__active")
     linkActivo.classList.remove("header__link__active")
+    cerrarModal()
 
 
     const enlace = evento.target;
@@ -114,6 +114,7 @@ function mostrarPokemon(vista){
         datosAPintar = funciones.sortData(d, 'name', formaOrdenar );
         contenedorPokemones = containerPokemonesOrdenados;
     } else {
+        borrarContenido()
         datosAPintar = datosPokemon;
         contenedorPokemones = containerPokemones;
     }
