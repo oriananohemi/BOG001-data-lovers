@@ -1,12 +1,10 @@
  const funciones = {
 
   sortData: function (data, sortBy, sortOrder) {  
-    let dataOrdenada = data.sort((a,b) => a[sortBy] > b[sortBy] ? 1 : -1 )
-    
+    let dataOrdenada = data.sort((a,b) => a[sortBy] > b[sortBy] ? 1 : -1 );
     if (sortOrder === 'descendente') {
       dataOrdenada = dataOrdenada.reverse()
     }
-
     return dataOrdenada;
   },
 

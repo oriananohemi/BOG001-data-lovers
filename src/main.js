@@ -13,6 +13,8 @@ const botonCerrarModal = document.getElementById("cerrar");
 
 const botonSiguiente = document.getElementById("siguiente");
 const botonAnterior = document.getElementById("anterior");
+const botonSiguienteDos = document.getElementById("siguienteDos");
+const botonAnteriorDos = document.getElementById("anteriorDos");
 const menuHamburguesa = document.getElementById("menuTrigger");
 
 
@@ -32,12 +34,12 @@ function agregarEscuchador(){
     links.forEach(link => link.addEventListener("click", cambiarVista) )
 }
 
-function cambiarVista(evento){    
+function cambiarVista(evento){ 
+    revisarBotonAtras("1");   
     document.querySelectorAll(".paginas").forEach(vista => vista.classList.add("hidden"))
     const linkActivo = document.querySelector(".header__link__active")
     linkActivo.classList.remove("header__link__active")
     cerrarModal()
-
 
     const enlace = evento.target;
 
@@ -130,21 +132,22 @@ function borrarContenido(){
 
 function revisarBotonSiguiente(pagina) {
     botonSiguiente.style.display = pagina+1 > separacionPaginas ? "none" : "block" ;
+    botonSiguienteDos.style.display = pagina+1 > separacionPaginas ? "none" : "block" ;
 }
 
 function revisarBotonAtras(pagina){
     botonAnterior.style.display = pagina-1 === 0 ? "none" : "block" ;
+    botonAnteriorDos.style.display = pagina-1 === 0 ? "none" : "block" ;
 }
 
-function cambiarPagina(event, vista){
+function cambiarPagina(event, vista){    
     window.scrollTo(0, 0)
     borrarContenido();    
     if(event.target.id === "siguiente"){
         paginaInicial ++;
     } else {
         paginaInicial--
-    }
-    
+    }    
     mostrarPokemon(vista)
     revisarBotonAtras(paginaInicial);
     revisarBotonSiguiente(paginaInicial);
@@ -221,6 +224,8 @@ function filtrarTipo() {
 
 botonSiguiente.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
 botonAnterior.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
+botonSiguienteDos.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
+botonAnteriorDos.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
 menuHamburguesa.addEventListener("click", menu)
 botonCerrarModal.addEventListener("click", cerrarModal)
 selectFiltrar.addEventListener('change', filtrarTipo)
