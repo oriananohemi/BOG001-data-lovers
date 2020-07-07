@@ -20,6 +20,12 @@ describe('funciones.filterData', () => {
   });
  });
 
+ describe('funciones.sortData', () => {
+  it('is a function', () => {
+    expect(typeof funciones.sortData).toBe('function');
+  });
+ });
+
 /*describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
