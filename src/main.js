@@ -190,9 +190,9 @@ function pintarPokemonEnModal(pokemon){
             </div>
             <div class = "modal__type">
                 <p>Tipo: </p>
-                <p>${pokemon.type}</p>
+                <p><span>${pokemon.type}</span></p>
                 <p>Debilidad: </p>
-                <p>${pokemon.weaknesses}</p>
+                <p><span>${pokemon.weaknesses}</span></p>
             </div>
         </div>
     </div>`   
