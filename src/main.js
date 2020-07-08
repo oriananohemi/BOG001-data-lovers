@@ -25,7 +25,6 @@ const pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
 
 let paginaInicial = 1;  
-
 let vistaInicial;
 
 
@@ -35,8 +34,7 @@ function agregarEscuchador(){
 }
 
 function cambiarVista(evento){    
-    const linkActivo = document.querySelector(".header__link__active")
-    
+    const linkActivo = document.querySelector(".header__link__active");    
     
     revisarBotonAtras("1")
     document.querySelectorAll(".paginas").forEach(vista => vista.classList.add("hidden"))
@@ -49,10 +47,10 @@ function cambiarVista(evento){
     enlace.classList.add("header__link__active")
     document.getElementById(vista).classList.remove("hidden")
     
-    if(vista === 'pokedex' || vista === 'ordenar') {
-        botones.classList.remove("hidden")
-    } else {
+    if(vista === 'inicio') {
         botones.classList.add("hidden")
+    } else {
+        botones.classList.remove("hidden")
     }
     
     paginaInicial = 1
@@ -99,7 +97,6 @@ function crearPokemonCard(pokemon){
     container.appendChild(debilidades);
     container.setAttribute("class", "card__info")
 
-
     card.appendChild(image);
     card.appendChild(container);
     card.setAttribute("class", "card__container");
@@ -119,16 +116,23 @@ function mostrarPokemon(vista){
         const containerPokemonesOrdenados = document.getElementById("pokemonesOrdenados");
         containerPokemonesOrdenados.innerHTML = '';
         contenedorPokemones = containerPokemonesOrdenados;
-
         let formaOrdenar = ordenar.value;
-        const d = datosPokemon.slice()
-        
+        const d = datosPokemon.slice();        
         datosAPintar = funciones.sortData(d, 'name', formaOrdenar );
+
+    } else if (vista === 'buscar') {
+        const pruebaFiltro = document.getElementById('pruebaFiltro');
+        pruebaFiltro.innerHTML = "";
+        let valorSelect = selectFiltrar.value; 
+        const d = datosPokemon.slice() 
+        datosAPintar = funciones.filterData(d, valorSelect);
+        contenedorPokemones = pruebaFiltro;
+
     } else {
-        contenedorPokemones = containerPokemones;
-        datosAPintar = datosPokemon;
         borrarContenido()
-    }
+        datosAPintar = datosPokemon;
+        contenedorPokemones = containerPokemones;
+    }    
     
     let pagination = paginate(datosAPintar,pokemonesPorPagina,paginaInicial);
     pagination.forEach((pokemon) => {
@@ -207,39 +211,20 @@ function pintarPokemonEnModal(pokemon){
     </div>`   
 }
 
-function filtrarTipo() {
-    const pruebaFiltro = document.getElementById('pruebaFiltro');
-
-    pruebaFiltro.innerHTML = "";
-    let valorSelect = selectFiltrar.value;    
-    
-    let datosFiltradosPokemon = funciones.filterData(datosPokemon, valorSelect);
-
-    for (let i = 1; i < datosFiltradosPokemon.length; i++) {
-    pruebaFiltro.innerHTML += 
-    `<article class = "card__container">
-        <img src = "${datosFiltradosPokemon[i].img}">
-        <div class = "card__info">
-            <div class = "container__flex">
-                <h2 class = "pintarTitulo"> ${datosFiltradosPokemon[i].name} </h2>
-                <h3> ${datosFiltradosPokemon[i].id} </h3>
-            </div>
-            <h3> ${datosFiltradosPokemon[i].type} </h3>
-        </div>
-    </article>
-    `
-    } 
-}
-
 botonSiguiente.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
 botonAnterior.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
 menuHamburguesa.addEventListener("click", menu)
 botonCerrarModal.addEventListener("click", cerrarModal)
-selectFiltrar.addEventListener('change', filtrarTipo)
 ordenar.addEventListener('change', ()=> { 
     paginaInicial = 1; 
     revisarBotonAtras("1")
     mostrarPokemon('ordenar');
+})
+selectFiltrar.addEventListener('change', ()=> {
+    
+    revisarBotonAtras("1");
+    revisarBotonSiguiente(paginaInicial);
+    mostrarPokemon('buscar');
 })
 
 revisarBotonAtras(paginaInicial);

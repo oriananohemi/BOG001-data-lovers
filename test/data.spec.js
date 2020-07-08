@@ -12,11 +12,11 @@ describe('funciones.filterData', () => {
   });
 
   it('Deberia devolver Pikachu para tipo Electrico', () => {
-    expect(funciones.filterData(data.pokemon, "Electrico")[1].name).toEqual('Pikachu');
+    expect(funciones.filterData(data.pokemon, "Electrico")[0].name).toEqual('Pikachu');
   });
 
-  it('Deberia devolver un arreglo de 4 elementos para tipo Dragon', () => {
-    expect(funciones.filterData(data.pokemon, "Dragon")).toHaveLength(4);
+  it('Deberia devolver un arreglo de 3 elementos para tipo Dragon', () => {
+    expect(funciones.filterData(data.pokemon, "Dragon")).toHaveLength(3);
   });
  });
 
