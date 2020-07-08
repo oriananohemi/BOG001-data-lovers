@@ -1,3 +1,4 @@
+
  const funciones = {
 
   sortData: function (data, sortBy, sortOrder) {  
@@ -18,7 +19,16 @@
       }      
     }
     return filtro;    
+  },
+
+  computeStats: function (pokemon, condicion) {
+    let suma = 0;
+    for (let i = 0; i < pokemon.length; i++) {
+      suma += parseInt(pokemon[i][condicion].slice(0, -2));      
+    }
+    let promedio = (suma / pokemon.length).toFixed(2);
+    return promedio;
   }
- }
+}
 
 export default funciones;

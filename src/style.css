@@ -84,7 +84,7 @@ body {
 }
 
 .header__menu__position {
-  top: -300px;
+  top: -350px;
 }
 
 .header__link {
@@ -161,7 +161,7 @@ body {
 
 .button {
   display: block;
-  margin: 0 auto;
+  margin: 30px auto;
   width: 135px;
   height: 40px;
   border-radius: 10px;
@@ -281,7 +281,7 @@ footer p {
 }
 
 .modal__features span {
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .modal__type {
@@ -319,6 +319,15 @@ footer p {
 
 .paginas {
   text-align: center;
+}
+
+.datosP {
+  margin: 30px 0;
+}
+
+.datosP p span {
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 @media (min-width: 500px) {
@@ -394,6 +403,7 @@ footer p {
   .card__container {
     flex-wrap: wrap;
     width: 40%;
+    max-width: calc(40% + 30px);
   }
 
   .modal__pokemon__info {
@@ -426,6 +436,7 @@ footer p {
 @media (min-width: 1025px){
   .card__container {
     flex: 1 1 25%;
+    max-width: calc(25% + 30px);
   }
 
   .section__link img {
@@ -458,6 +469,7 @@ footer p {
 @media (min-width: 1201px){
   .card__container {
     flex: 1 1 20%;
+    max-width: calc(20% + 30px);
   }
 
   .section__link img {

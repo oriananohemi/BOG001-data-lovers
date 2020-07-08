@@ -37,3 +37,13 @@ describe('funciones.filterData', () => {
     expect(funciones.sortData(data.pokemon, "name", "descendente")[150].name).toEqual('Abra');
   });
  });
+
+ describe('funciones.computeStats', () => {
+  it('is a function', () => {
+    expect(typeof funciones.computeStats).toBe('function');
+  });
+
+  it('Deberiamos esperar un promedio de 1.23 para los tres primeros pokemones', () => {
+    expect(funciones.computeStats(([data.pokemon[0], data.pokemon[1]]), "height")).toBe("0.85");
+  });  
+ });

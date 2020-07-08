@@ -21,7 +21,7 @@ const menuHamburguesa = document.getElementById("menuTrigger");
 const selectFiltrar = document.getElementById('buscar__type');
 const ordenar = document.getElementById('ordenarPorNombre');
 
-const pokemonesPorPagina = 12;
+let pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
 
 let paginaInicial = 1;  
@@ -36,7 +36,6 @@ function agregarEscuchador(){
 function cambiarVista(evento){    
     const linkActivo = document.querySelector(".header__link__active");    
     
-    revisarBotonAtras("1")
     document.querySelectorAll(".paginas").forEach(vista => vista.classList.add("hidden"))
     linkActivo.classList.remove("header__link__active")
     cerrarModal()
@@ -47,12 +46,15 @@ function cambiarVista(evento){
     enlace.classList.add("header__link__active")
     document.getElementById(vista).classList.remove("hidden")
     
-    if(vista === 'inicio') {
+    if(vista === 'pokedex' || vista === 'ordenar') {
+        botones.classList.remove("hidden")
+    } else if (vista === 'datos') {
+        mostrarGraficas();
         botones.classList.add("hidden")
     } else {
-        botones.classList.remove("hidden")
+        botones.classList.add("hidden")
     }
-    
+
     paginaInicial = 1;
     vistaInicial = vista;
     menu();
@@ -119,16 +121,16 @@ function mostrarPokemon(vista){
         contenedorPokemones = containerPokemonesOrdenados;
         let formaOrdenar = ordenar.value;
         const d = datosPokemon.slice();        
-        datosAPintar = funciones.sortData(d, 'name', formaOrdenar );       
-
+        datosAPintar = funciones.sortData(d, 'name', formaOrdenar );
+        pokemonesPorPagina = 12
     } else if (vista === 'buscar') {
         const pruebaFiltro = document.getElementById('pruebaFiltro');
         pruebaFiltro.innerHTML = "";
         let valorSelect = selectFiltrar.value; 
         const d = datosPokemon.slice() 
         datosAPintar = funciones.filterData(d, valorSelect);
-        contenedorPokemones = pruebaFiltro;       
-
+        contenedorPokemones = pruebaFiltro;
+        pokemonesPorPagina = 26
     } else {
         borrarContenido()
         datosAPintar = datosPokemon;
@@ -204,12 +206,19 @@ function pintarPokemonEnModal(pokemon){
             </div>
             <div class = "modal__type">
                 <p>Tipo: </p>
-                <p>${pokemon.type}</p>
+                <p><span>${pokemon.type}</span></p>
                 <p>Debilidad: </p>
-                <p>${pokemon.weaknesses}</p>
+                <p><span>${pokemon.weaknesses}<span></p>
             </div>
         </div>
     </div>`   
+}
+
+function mostrarGraficas() {
+    const datosPromedio = document.getElementById('datosPromedio');
+    datosPromedio.innerHTML =
+    `<p> El Promedio de <span>Peso</span> para los Pokemones es de: ${funciones.computeStats(datosPokemon, 'weight')} kg</p>
+    <p> El Promedio de <span>Altura</span> para los Pokemones es de: ${funciones.computeStats(datosPokemon, 'height')} m</p>`    
 }
 
 botonSiguiente.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
@@ -222,7 +231,7 @@ ordenar.addEventListener('change', ()=> {
     mostrarPokemon('ordenar');
 })
 selectFiltrar.addEventListener('change', ()=> {
-    
+    paginaInicial = 1; 
     revisarBotonAtras("1");
     revisarBotonSiguiente(paginaInicial);
     mostrarPokemon('buscar');
@@ -231,3 +240,4 @@ selectFiltrar.addEventListener('change', ()=> {
 revisarBotonAtras(paginaInicial);
 revisarBotonSiguiente(paginaInicial);
 agregarEscuchador()
+
