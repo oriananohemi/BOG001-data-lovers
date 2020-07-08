@@ -52,10 +52,14 @@
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum omnis nostrum hic cum odio alias, fugit quia corporis repudiandae. Nesciunt ipsam eius nemo fugit nostrum similique voluptatum voluptatibus quisquam adipisci.</p>
         </div>
 
-        <div id="contenedorTodaData" class="hidden">
+        <div id="contenedorTodaData">
           <div id="pokedex" class="paginas hidden">
               <section class="section__content" id="pokemones">
-              </section>
+              </section>              
+              <a class="section__link" href="https://pokemongolive.com/es/" target="_blank">
+                <img class="section__link__image" src="image//logo.png" alt="">
+                <h3 class="section__link__title">VAMOS A JUGAR</h3>
+              </a>
           </div>
   
           <div id="ordenar" class="paginas hidden">
@@ -66,49 +70,45 @@
             </select>
               <section class="section__content" id="pokemonesOrdenados">
               </section>
-  
+          </div>                 
+
+          <div id="buscar" class="paginas hidden">
+            <h2>Buscar</h2>
+            <label>Filtrar por tipo</label>
+            <select name="selectType" id="buscar__type" class="select">
+              <option selected value="">Elige una opcion</option> 
+              <option value="Yerba">Yerba</option> 
+              <option value="Veneno">Veneno</option>
+              <option value="Fuego">Fuego</option>
+              <option value="Volador">Volador</option> 
+              <option value="Agua">Agua</option>
+              <option value="Insecto">Insecto</option>
+              <option value="Normal">Normal</option> 
+              <option value="Tierra">Tierra</option>
+              <option value="Electrico">Electricoo</option>
+              <option value="Lucha">Lucha</option> 
+              <option value="Psiquico">Psiquico</option>
+              <option value="Roca">Roca</option>
+              <option value="Hielo">Hielo</option> 
+              <option value="Fantasma">Fantasma</option>
+              <option value="Dragon">Dragon</option>
+            </select>  
+            <section class="section__content" id="pruebaFiltro">
+            </section>        
           </div>
 
-          <div class="button__container">
+          <div id= "contenedorBotones" class="button__container hidden">
             <button class="button" id="anterior">Anterior</button>
             <button class="button" id="siguiente">Siguiente</button>
           </div>
         </div>
+
         <section id="modal" class="hidden">
-              <div class="modal__pokemon__info">
-              </div>
-              <button id="cerrar" class="button">Regresar</button>
+          <div class="modal__pokemon__info">
+          </div>
+          <button id="cerrar" class="button">Regresar</button>
         </section>
 
-        <div id="buscar" class="paginas hidden">
-          <h2>Buscar</h2>
-          <label>Filtrar por tipo</label>
-          <select name="selectType" id="buscar__type" class="select">
-            <option selected value="">Elige una opcion</option> 
-            <option value="Yerba">Yerba</option> 
-            <option value="Veneno">Veneno</option>
-            <option value="Fuego">Fuego</option>
-            <option value="Volador">Volador</option> 
-            <option value="Agua">Agua</option>
-            <option value="Insecto">Insecto</option>
-            <option value="Normal">Normal</option> 
-            <option value="Tierra">Tierra</option>
-            <option value="Electrico">Electricoo</option>
-            <option value="Lucha">Lucha</option> 
-            <option value="Psiquico">Psiquico</option>
-            <option value="Rock">Roca</option>
-            <option value="Hielo">Hielo</option> 
-            <option value="Fantasma">Fantasma</option>
-            <option value="Dragon">Dragon</option>
-          </select>  
-          <section class="section__content" id="pruebaFiltro">
-          </section>        
-        </div>
-
-        <a class="section__link" href="https://pokemongolive.com/es/" target="_blank">
-            <img class="section__link__image" src="image//logo.png" alt="">
-            <h3 class="section__link__title">VAMOS A JUGAR</h3>
-        </a>
       </main>
 
       <footer class="container__flex">
