@@ -11,10 +11,10 @@ const containerPokemones = document.getElementById("pokemones")
 const modal = document.getElementById("modal");
 const botonCerrarModal = document.getElementById("cerrar");
 
+
+const botones = document.getElementById("contenedorBotones")
 const botonSiguiente = document.getElementById("siguiente");
 const botonAnterior = document.getElementById("anterior");
-const botonSiguienteDos = document.getElementById("siguienteDos");
-const botonAnteriorDos = document.getElementById("anteriorDos");
 const menuHamburguesa = document.getElementById("menuTrigger");
 
 
@@ -34,23 +34,31 @@ function agregarEscuchador(){
     links.forEach(link => link.addEventListener("click", cambiarVista) )
 }
 
-function cambiarVista(evento){ 
-    revisarBotonAtras("1");   
-    document.querySelectorAll(".paginas").forEach(vista => vista.classList.add("hidden"))
+function cambiarVista(evento){    
     const linkActivo = document.querySelector(".header__link__active")
+    
+    
+    revisarBotonAtras("1")
+    document.querySelectorAll(".paginas").forEach(vista => vista.classList.add("hidden"))
     linkActivo.classList.remove("header__link__active")
     cerrarModal()
-
+    
     const enlace = evento.target;
-
-    enlace.classList.add("header__link__active")
     const vista = enlace.getAttribute("href").slice(1);
+    
+    enlace.classList.add("header__link__active")
     document.getElementById(vista).classList.remove("hidden")
-
+    
+    if(vista === 'pokedex' || vista === 'ordenar') {
+        botones.classList.remove("hidden")
+    } else {
+        botones.classList.add("hidden")
+    }
+    
     paginaInicial = 1
     vistaInicial = vista
-    mostrarPokemon(vistaInicial)
     menu()
+    mostrarPokemon(vistaInicial)
 }
 
 function paginate(array, page_size, page_number) {      
@@ -110,17 +118,19 @@ function mostrarPokemon(vista){
     if(vista === 'ordenar') {
         const containerPokemonesOrdenados = document.getElementById("pokemonesOrdenados");
         containerPokemonesOrdenados.innerHTML = '';
+        contenedorPokemones = containerPokemonesOrdenados;
+
         let formaOrdenar = ordenar.value;
         const d = datosPokemon.slice()
+        
         datosAPintar = funciones.sortData(d, 'name', formaOrdenar );
-        contenedorPokemones = containerPokemonesOrdenados;
     } else {
-        borrarContenido()
-        datosAPintar = datosPokemon;
         contenedorPokemones = containerPokemones;
+        datosAPintar = datosPokemon;
+        borrarContenido()
     }
+    
     let pagination = paginate(datosAPintar,pokemonesPorPagina,paginaInicial);
-
     pagination.forEach((pokemon) => {
         contenedorPokemones.appendChild(crearPokemonCard(pokemon))
     })
@@ -132,22 +142,21 @@ function borrarContenido(){
 
 function revisarBotonSiguiente(pagina) {
     botonSiguiente.style.display = pagina+1 > separacionPaginas ? "none" : "block" ;
-    botonSiguienteDos.style.display = pagina+1 > separacionPaginas ? "none" : "block" ;
 }
 
 function revisarBotonAtras(pagina){
     botonAnterior.style.display = pagina-1 === 0 ? "none" : "block" ;
-    botonAnteriorDos.style.display = pagina-1 === 0 ? "none" : "block" ;
 }
 
-function cambiarPagina(event, vista){    
+function cambiarPagina(event, vista){
     window.scrollTo(0, 0)
     borrarContenido();    
     if(event.target.id === "siguiente"){
         paginaInicial ++;
     } else {
         paginaInicial--
-    }    
+    }
+    
     mostrarPokemon(vista)
     revisarBotonAtras(paginaInicial);
     revisarBotonSiguiente(paginaInicial);
@@ -190,9 +199,9 @@ function pintarPokemonEnModal(pokemon){
             </div>
             <div class = "modal__type">
                 <p>Tipo: </p>
-                <p><span>${pokemon.type}</span></p>
+                <p>${pokemon.type}</p>
                 <p>Debilidad: </p>
-                <p><span>${pokemon.weaknesses}</span></p>
+                <p>${pokemon.weaknesses}</p>
             </div>
         </div>
     </div>`   
@@ -224,12 +233,14 @@ function filtrarTipo() {
 
 botonSiguiente.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
 botonAnterior.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
-botonSiguienteDos.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
-botonAnteriorDos.addEventListener("click", ()=> cambiarPagina(event, vistaInicial))
 menuHamburguesa.addEventListener("click", menu)
 botonCerrarModal.addEventListener("click", cerrarModal)
 selectFiltrar.addEventListener('change', filtrarTipo)
-ordenar.addEventListener('change', ()=> mostrarPokemon('ordenar'))
+ordenar.addEventListener('change', ()=> { 
+    paginaInicial = 1; 
+    revisarBotonAtras("1")
+    mostrarPokemon('ordenar');
+})
 
 revisarBotonAtras(paginaInicial);
 revisarBotonSiguiente(paginaInicial);
