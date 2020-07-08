@@ -53,10 +53,10 @@ function cambiarVista(evento){
         botones.classList.remove("hidden")
     }
     
-    paginaInicial = 1
-    vistaInicial = vista
-    menu()
-    mostrarPokemon(vistaInicial)
+    paginaInicial = 1;
+    vistaInicial = vista;
+    menu();
+    mostrarPokemon(vistaInicial);
 }
 
 function paginate(array, page_size, page_number) {      
@@ -110,7 +110,8 @@ function crearPokemonCard(pokemon){
 function mostrarPokemon(vista){
 
     let datosAPintar;
-    let contenedorPokemones; 
+    let contenedorPokemones;
+    let pagination; 
 
     if(vista === 'ordenar') {
         const containerPokemonesOrdenados = document.getElementById("pokemonesOrdenados");
@@ -118,7 +119,7 @@ function mostrarPokemon(vista){
         contenedorPokemones = containerPokemonesOrdenados;
         let formaOrdenar = ordenar.value;
         const d = datosPokemon.slice();        
-        datosAPintar = funciones.sortData(d, 'name', formaOrdenar );
+        datosAPintar = funciones.sortData(d, 'name', formaOrdenar );       
 
     } else if (vista === 'buscar') {
         const pruebaFiltro = document.getElementById('pruebaFiltro');
@@ -126,15 +127,15 @@ function mostrarPokemon(vista){
         let valorSelect = selectFiltrar.value; 
         const d = datosPokemon.slice() 
         datosAPintar = funciones.filterData(d, valorSelect);
-        contenedorPokemones = pruebaFiltro;
+        contenedorPokemones = pruebaFiltro;       
 
     } else {
         borrarContenido()
         datosAPintar = datosPokemon;
         contenedorPokemones = containerPokemones;
-    }    
+    }        
     
-    let pagination = paginate(datosAPintar,pokemonesPorPagina,paginaInicial);
+    pagination = paginate(datosAPintar,pokemonesPorPagina,paginaInicial);
     pagination.forEach((pokemon) => {
         contenedorPokemones.appendChild(crearPokemonCard(pokemon))
     })
