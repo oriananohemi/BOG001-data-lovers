@@ -5,7 +5,7 @@ import data from '../src/data/pokemon/pokemon.js';
 describe('funciones.filterData', () => {
   const datos = data.pokemon.slice()
   
-  it('is a function', () => {
+  it('Es una funcion', () => {
     expect(typeof funciones.filterData).toBe('function');
   });
 
@@ -25,7 +25,7 @@ describe('funciones.filterData', () => {
  describe('funciones.sortData', () => {
    const datos = data.pokemon.slice()
   
-  it('is a function', () => {
+  it('Es una funcion', () => {
     expect(typeof funciones.sortData).toBe('function');
   });
 
@@ -49,7 +49,7 @@ describe('funciones.filterData', () => {
  describe('funciones.computeStats', () => {
    const datos = data.pokemon.slice(0,3)
    
-  it('is a function', () => {
+  it('Es una funcion', () => {
     expect(typeof funciones.computeStats).toBe('function');
   });
 
@@ -61,3 +61,11 @@ describe('funciones.filterData', () => {
     expect(funciones.computeStats(datos, "weight")).toBe("39.97");
   });  
  });
+
+ describe('funciones.loadJSON', () => {
+
+ it('Es una funcion', () => {
+   expect(typeof funciones.loadJSON).toBe('function');
+ });
+
+});
