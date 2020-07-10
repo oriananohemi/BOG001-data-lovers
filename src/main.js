@@ -86,10 +86,10 @@ function crearPokemonCard(pokemon) {
   id.innerHTML = ` ${pokemon.id}`;
 
   const tipo = document.createElement("h3");
-  tipo.innerHTML = `Tipo: ${pokemon.type}`;
+  tipo.innerHTML = `Tipo: ${pokemon.type.join(', ')}`;
 
   const debilidades = document.createElement("h3");
-  debilidades.innerHTML = `Debilidad: ${pokemon.weaknesses}`;
+  debilidades.innerHTML = `Debilidad: ${pokemon.weaknesses.join(', ')}`;
   debilidades.setAttribute("class", "debilidades");
 
   containerTitulo.appendChild(nombre);
@@ -211,9 +211,9 @@ function pintarPokemonEnModal(pokemon) {
             </div>
             <div class = "modal__type">
                 <p>Tipo: </p>
-                <p><span>${pokemon.type}</span></p>
+                <p><span>${pokemon.type.join(', ')}</span></p>
                 <p>Debilidad: </p>
-                <p><span>${pokemon.weaknesses}<span></p>
+                <p><span>${pokemon.weaknesses.join(', ')}<span></p>
             </div>
         </div>
     </div>`;
