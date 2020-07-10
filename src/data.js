@@ -43,22 +43,18 @@
     return promedio;
   },
 
-  promedio: function (pokemon) {
+  promedio: function (pokemon, condition) {
     let filtro = [];
+    let contador = 0;
     for (let i = 0; i < pokemon.length; i++) {
       for (let j = 0; j < pokemon[i].type.length; j++) {
-        filtro.forEach(element => {
-          let objeto
-          if (pokemon[i].type[j] !== element) {
-            objeto = pokemon[i].type[j]
-            filtro.push({objeto});          
-          } else {
-            pokemon[i].type[j] += 1
-          }
-        });
-      }      
+        if (pokemon[i].type[j] === condition) {
+          filtro.push(pokemon[i]);
+          contador = filtro.length;
+        }
+      }
     }
-    return filtro
+    return contador;
   }
 }
 

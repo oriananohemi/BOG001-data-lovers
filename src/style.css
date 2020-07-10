@@ -330,8 +330,11 @@ footer p {
   letter-spacing: 1px;
 }
 
-.datos__chart {
-  width: 500px;
+.datos__chart {  
+  position: relative;
+  margin: auto;
+  height: 50vh;
+  width: 50vw;
 }
 
 @media (min-width: 500px) {

@@ -1,4 +1,5 @@
 import funciones from "./data.js";
+import pokemon from "./data/pokemon/pokemon.js";
 
 let datosPokemon;
 
@@ -21,7 +22,6 @@ const menuHamburguesa = document.getElementById("menuTrigger");
 
 const selectFiltrar = document.getElementById("buscar__type");
 const ordenar = document.getElementById("ordenarPorNombre");
-
 
 let pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
@@ -86,10 +86,10 @@ function crearPokemonCard(pokemon) {
   id.innerHTML = ` ${pokemon.id}`;
 
   const tipo = document.createElement("h3");
-  tipo.innerHTML = `Tipo: ${pokemon.type.join(', ')}`;
+  tipo.innerHTML = `Tipo: ${pokemon.type.join(", ")}`;
 
   const debilidades = document.createElement("h3");
-  debilidades.innerHTML = `Debilidad: ${pokemon.weaknesses.join(', ')}`;
+  debilidades.innerHTML = `Debilidad: ${pokemon.weaknesses.join(", ")}`;
   debilidades.setAttribute("class", "debilidades");
 
   containerTitulo.appendChild(nombre);
@@ -195,8 +195,7 @@ function pintarPokemonEnModal(pokemon) {
     "modal__pokemon__info"
   )[0];
 
-  infoPokemon.innerHTML = 
-  `<div class = "modal__container-img">
+  infoPokemon.innerHTML = `<div class = "modal__container-img">
         <img class = "modal__img" src = "./image/pngflow.png" >
         <img class = "modal__image-pokemon" src = "${pokemon.img}">
     </div>
@@ -207,13 +206,15 @@ function pintarPokemonEnModal(pokemon) {
                 <p>Altura: <span> ${pokemon.height} </span></p>
                 <p>Peso: <span> ${pokemon.weight} </span></p>
                 <p>Caramelo: <span> ${pokemon.candy} </span></p>
-                <p>Recuento de Caramelos: <span> ${pokemon.candy_count} </span></p>
+                <p>Recuento de Caramelos: <span> ${
+                  pokemon.candy_count
+                } </span></p>
             </div>
             <div class = "modal__type">
                 <p>Tipo: </p>
-                <p><span>${pokemon.type.join(', ')}</span></p>
+                <p><span>${pokemon.type.join(", ")}</span></p>
                 <p>Debilidad: </p>
-                <p><span>${pokemon.weaknesses.join(', ')}<span></p>
+                <p><span>${pokemon.weaknesses.join(", ")}<span></p>
             </div>
         </div>
     </div>`;
@@ -221,8 +222,7 @@ function pintarPokemonEnModal(pokemon) {
 
 function mostrarGraficas() {
   const datosPromedio = document.getElementById("datosPromedio");
-  datosPromedio.innerHTML = 
-  `<p> El Promedio de <span>Peso</span> para los Pokemones es de: ${funciones.computeStats(
+  datosPromedio.innerHTML = `<p> El Promedio de <span>Peso</span> para los Pokemones es de: ${funciones.computeStats(
     datosPokemon,
     "weight"
   )} kg</p>
@@ -257,25 +257,88 @@ revisarBotonAtras(paginaInicial);
 revisarBotonSiguiente(paginaInicial);
 agregarEscuchador();
 
-const CHART = document.getElementById('chart');  
-    
-    // eslint-disable-next-line no-undef,no-unused-vars
-    let lineChart = new Chart(CHART, {   
-    
-      type: 'pie',
-        data: {
-            labels: ["Fuego", "Agua", "Electrico", "Lucha"],
-            datasets: [
-                {
-                  data: [12, 19, 3, 5, 2, 3],  
-                  label: "My first dataseet",
-                  backgroundColor: "#45de38",
-                }
-            ]
-        }
-    })  
+const CHART = document.getElementById("chart");
 
-
-
-
-
+// eslint-disable-next-line no-undef,no-unused-vars
+let lineChart = new Chart(CHART, {
+  type: "pie",
+  data: {
+    labels: [
+      "Dragon",
+      "Veneno",
+      "Volador",
+      "Insecto",
+      "Normal",
+      "Tierra",
+      "Psiquico",
+      "Hielo",
+      "Fantasma",
+      "Yerba",
+      "Fuego",
+      "Agua",
+      "Electrico",
+      "Lucha",
+      "Roca"
+    ],
+    datasets: [
+      {
+        data: [
+          funciones.promedio(datosPokemon, "Dragon"),
+          funciones.promedio(datosPokemon, "Veneno"),
+          funciones.promedio(datosPokemon, "Volador"),
+          funciones.promedio(datosPokemon, "Insecto"),
+          funciones.promedio(datosPokemon, "Normal"),
+          funciones.promedio(datosPokemon, "Tierra"),
+          funciones.promedio(datosPokemon, "Psiquico"),
+          funciones.promedio(datosPokemon, "Hielo"),
+          funciones.promedio(datosPokemon, "Fantasma"),
+          funciones.promedio(datosPokemon, "Yerba"),
+          funciones.promedio(datosPokemon, "Fuego"),
+          funciones.promedio(datosPokemon, "Agua"),
+          funciones.promedio(datosPokemon, "Electrico"),
+          funciones.promedio(datosPokemon, "Lucha"),
+          funciones.promedio(datosPokemon, "Roca")
+        ],
+        label: "My first dataseet",
+        backgroundColor: [
+          "#120136",
+          "#79D70F",
+          "#12947F",
+          "#06623B",
+          "#FF5200",
+          "#6F0000",
+          "#222831",
+          "#43D8C9",
+          "#D9455F",
+          "#A8DF65",
+          "#D92027",
+          "#1B6CA8",
+          "#FFD31D",
+          "#2C003E",
+          "#6F0000"]
+          
+      },
+    ],
+  }, 
+  options: {
+      title: {
+          display: true,
+          text: 'Cantidad de Pokemones por Tipo',
+          fontSize: 25,
+          padding: 30,
+          fontColor: '#1C2D61'
+      },
+      legend: {          
+          labels: {
+              padding: 15,
+              boxWidth: 20,
+              fontFamily: 'lato',   
+              fontColor: 'black'           
+          }
+      },     
+      tooltips: {                   
+          xPadding: 15,
+          yPadding: 15
+      }
+  }           
+})
