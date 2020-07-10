@@ -330,6 +330,10 @@ footer p {
   letter-spacing: 1px;
 }
 
+.datos__chart {
+  width: 500px;
+}
+
 @media (min-width: 500px) {
 
   .modal__img {

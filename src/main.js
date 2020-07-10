@@ -21,11 +21,13 @@ const menuHamburguesa = document.getElementById("menuTrigger");
 const selectFiltrar = document.getElementById('buscar__type');
 const ordenar = document.getElementById('ordenarPorNombre');
 
+
 let pokemonesPorPagina = 12;
 const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
 
 let paginaInicial = 1;  
 let vistaInicial;
+
 
 
 function agregarEscuchador(){
@@ -135,6 +137,7 @@ function mostrarPokemon(vista){
         borrarContenido()
         datosAPintar = datosPokemon;
         contenedorPokemones = containerPokemones;
+        pokemonesPorPagina = 12
     }        
     
     pagination = paginate(datosAPintar,pokemonesPorPagina,paginaInicial);
@@ -240,4 +243,26 @@ selectFiltrar.addEventListener('change', ()=> {
 revisarBotonAtras(paginaInicial);
 revisarBotonSiguiente(paginaInicial);
 agregarEscuchador()
+
+const CHART = document.getElementById('chart');  
+    
+    // eslint-disable-next-line no-undef,no-unused-vars
+    let lineChart = new Chart(CHART, {   
+    
+      type: 'pie',
+        data: {
+            labels: ["Fuego", "Agua", "Electrico", "Lucha"],
+            datasets: [
+                {
+                  data: [12, 19, 3, 5, 2, 3],  
+                  label: "My first dataseet",
+                  backgroundColor: "#45de38",
+                }
+            ]
+        }
+    })  
+
+
+
+
 
