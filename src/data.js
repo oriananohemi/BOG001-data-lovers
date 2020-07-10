@@ -42,6 +42,24 @@
     let promedio = (suma / pokemon.length).toFixed(2);
     return promedio;
   },
-};
+
+  promedio: function (pokemon) {
+    let filtro = [];
+    for (let i = 0; i < pokemon.length; i++) {
+      for (let j = 0; j < pokemon[i].type.length; j++) {
+        filtro.forEach(element => {
+          let objeto
+          if (pokemon[i].type[j] !== element) {
+            objeto = pokemon[i].type[j]
+            filtro.push({objeto});          
+          } else {
+            pokemon[i].type[j] += 1
+          }
+        });
+      }      
+    }
+    return filtro
+  }
+}
 
 export default funciones;
