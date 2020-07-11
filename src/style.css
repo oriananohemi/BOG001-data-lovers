@@ -331,10 +331,9 @@ footer p {
 }
 
 .datos__chart {  
-  position: relative;
-  margin: auto;
-  height: 50vh;
-  width: 50vw;
+  width: 70%;
+  margin: 40px auto;
+  height: 500px;
 }
 
 @media (min-width: 500px) {
@@ -358,10 +357,6 @@ footer p {
     width: 20%;
   }
 }
-/* PRUEBA */
-/* .debilidades {
-  word-break: break-all;
-} */
 
 @media (min-width: 768px) {
 
