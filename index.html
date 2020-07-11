@@ -42,6 +42,12 @@
                 BUSCAR
               </a>
             </li>
+            <li>
+              <a class="header__link" href="#datos">
+                <i class="fas fa-chart-pie"></i>
+                DATOS
+              </a>
+            </li>
           </ul>
         </nav>
       </header>
@@ -109,6 +115,14 @@
           <button id="cerrar" class="button">Regresar</button>
         </section>
 
+        <section id="datos" class="paginas hidden">
+          <h1>Datos y Graficas</h1>
+          <div class="datosP" id="datosPromedio"></div>
+          <div class="datos__chart">
+            <canvas id="chart"></canvas>
+          </div>
+        </section>
+
       </main>
 
       <footer class="container__flex">
@@ -126,6 +140,7 @@
       </footer>
     </div> 
     <script src="main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://kit.fontawesome.com/9fa96555ef.js"></script>
   </body>
 </html>
