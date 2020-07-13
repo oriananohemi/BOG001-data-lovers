@@ -1,5 +1,4 @@
 import funciones from "./data.js";
-import pokemon from "./data/pokemon/pokemon.js";
 
 let datosPokemon;
 
@@ -317,29 +316,32 @@ let lineChart = new Chart(CHART, {
           "#FFD31D",
           "#2C003E",
           "#6F0000"]
-          
       },
     ],
   }, 
   options: {
+    responsive: true,
+    responsiveAnimationDuration: 0,
+    maintainAspectRatio: 0,
       title: {
           display: true,
           text: 'Cantidad de Pokemones por Tipo',
-          fontSize: 25,
-          padding: 30,
-          fontColor: '#1C2D61'
+          fontSize: 30,
+          padding: 10,
+          fontColor: '#1C2D61',
       },
       legend: {          
           labels: {
-              padding: 15,
-              boxWidth: 20,
+              fontSize: 16,
+              padding: 10,
+              boxWidth: 40,
               fontFamily: 'lato',   
-              fontColor: 'black'           
+              fontColor: 'black',      
           }
       },     
       tooltips: {                   
-          xPadding: 15,
-          yPadding: 15
+          xPadding: 10,
+          yPadding: 10,
       }
   }           
 })
