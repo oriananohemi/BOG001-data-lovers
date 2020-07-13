@@ -1,11 +1,28 @@
 import funciones from "./data.js";
 
-let datosPokemon;
+let datosPokemon
 
-// EJECUCION
-funciones.loadJSON((res) => {
-  datosPokemon = JSON.parse(res).pokemon; //PARSEAR EL JSON PQ LO QUE RECIBO ES UN STRING GIGANTE
-});
+// // EJECUCION
+// funciones.loadJSON((res) => {
+//   datosPokemon = JSON.parse(res).pokemon; //PARSEAR EL JSON PQ LO QUE RECIBO ES UN STRING GIGANTE
+// });
+
+  fetch("./data/pokemon/pokemon.json")
+  .then(function(res) {
+    if(res.status !== 200) {
+      console.log(res.status)
+    }
+
+    res.json().then(function(data) {
+      datosPokemon = data.pokemon
+      agregarEscuchador()
+    })
+  }).catch((error) => {
+    console.log(error)
+  })
+
+
+const CHART = document.getElementById("chart");
 
 const main = document.getElementById("contenedorTodaData");
 
@@ -23,7 +40,6 @@ const selectFiltrar = document.getElementById("buscar__type");
 const ordenar = document.getElementById("ordenarPorNombre");
 
 let pokemonesPorPagina = 12;
-const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
 
 let paginaInicial = 1;
 let vistaInicial;
@@ -149,6 +165,7 @@ function borrarContenido() {
 }
 
 function revisarBotonSiguiente(pagina) {
+  let separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
   botonSiguiente.style.display =
     pagina + 1 > separacionPaginas ? "none" : "block";
 }
@@ -230,35 +247,8 @@ function mostrarGraficas() {
       "height"
     )} m
     </p>`;
-}
 
-botonSiguiente.addEventListener("click", () =>
-  cambiarPagina(event, vistaInicial)
-);
-botonAnterior.addEventListener("click", () =>
-  cambiarPagina(event, vistaInicial)
-);
-menuHamburguesa.addEventListener("click", menu);
-botonCerrarModal.addEventListener("click", cerrarModal);
-ordenar.addEventListener("change", () => {
-  paginaInicial = 1;
-  revisarBotonAtras("1");
-  mostrarPokemon("ordenar");
-});
-selectFiltrar.addEventListener("change", () => {
-  paginaInicial = 1;
-  revisarBotonAtras("1");
-  revisarBotonSiguiente(paginaInicial);
-  mostrarPokemon("buscar");
-});
-
-revisarBotonAtras(paginaInicial);
-revisarBotonSiguiente(paginaInicial);
-agregarEscuchador();
-
-const CHART = document.getElementById("chart");
-
-// eslint-disable-next-line no-undef,no-unused-vars
+    // eslint-disable-next-line no-undef,no-unused-vars
 let lineChart = new Chart(CHART, {
   type: "pie",
   data: {
@@ -344,3 +334,25 @@ let lineChart = new Chart(CHART, {
       }
   }           
 })
+}
+
+
+botonSiguiente.addEventListener("click", () =>
+  cambiarPagina(event, vistaInicial)
+);
+botonAnterior.addEventListener("click", () =>
+  cambiarPagina(event, vistaInicial)
+);
+menuHamburguesa.addEventListener("click", menu);
+botonCerrarModal.addEventListener("click", cerrarModal);
+ordenar.addEventListener("change", () => {
+  paginaInicial = 1;
+  revisarBotonAtras("1");
+  mostrarPokemon("ordenar");
+});
+selectFiltrar.addEventListener("change", () => {
+  paginaInicial = 1;
+  revisarBotonAtras("1");
+  revisarBotonSiguiente(paginaInicial);
+  mostrarPokemon("buscar");
+});
