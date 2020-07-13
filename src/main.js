@@ -116,6 +116,7 @@ function mostrarPokemon(vista) {
   let pagination;
 
   if (vista === "ordenar") {
+    
     const containerPokemonesOrdenados = document.getElementById(
       "pokemonesOrdenados"
     );
