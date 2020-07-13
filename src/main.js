@@ -2,10 +2,27 @@ import funciones from "./data.js";
 
 let dataPokemon;
 
-// EJECUCION
-funciones.loadJSON((res) => {
-  dataPokemon = JSON.parse(res).pokemon; //PARSEAR EL JSON PQ LO QUE RECIBO ES UN STRING GIGANTE
-});
+// // EJECUCION
+// funciones.loadJSON((res) => {
+//   datosPokemon = JSON.parse(res).pokemon; //PARSEAR EL JSON PQ LO QUE RECIBO ES UN STRING GIGANTE
+// });
+
+  fetch("./data/pokemon/pokemon.json")
+  .then(function(res) {
+    if(res.status !== 200) {
+      console.log(res.status)
+    }
+
+    res.json().then(function(data) {
+      dataPokemon = data.pokemon
+      checkButtonBack(pageInitial);
+      checkButtonNext(pageInitial);
+      addListener()
+    })
+  }).catch((error) => {
+    console.log(error)
+  })
+
 
 const containerData = document.getElementById("contenedorTodaData");
 const containerPokemones = document.getElementById("pokemones");
@@ -20,7 +37,6 @@ const order = document.getElementById("ordenarPorNombre");
 const CHART = document.getElementById("chart");
 
 let pokemonesForPage = 12;
-const separationPage = Math.ceil(dataPokemon.length / pokemonesForPage);
 
 let pageInitial = 1;
 let viewInitial;
@@ -153,6 +169,7 @@ function deleteContent() {
 
 //Verificar si se muestra el boton siguiente
 function checkButtonNext(page) {
+  const separationPage = Math.ceil(dataPokemon.length / pokemonesForPage);
   buttonNext.style.display =
     page + 1 > separationPage ? "none" : "block";
 }
@@ -242,7 +259,7 @@ function showGraphics() {
     </p>`;
 
   // eslint-disable-next-line no-undef,no-unused-vars
-  let lineChart = new Chart(CHART, {
+let lineChart = new Chart(CHART, {
   type: "pie",
   data: {
     labels: [
@@ -304,7 +321,7 @@ function showGraphics() {
   options: {
     responsive: true,
     responsiveAnimationDuration: 0,
-    containerDatatainAspectRatio: 0,
+    maintainAspectRatio: 0,
       title: {
           display: true,
           text: 'Cantidad de Pokemones por Tipo',
@@ -351,10 +368,6 @@ selectFilter.addEventListener("change", () => {
   checkButtonNext(pageInitial);
   showPokemon("buscar");
 });
-
-checkButtonBack(pageInitial);
-checkButtonNext(pageInitial);
-addListener();
 
 
 
