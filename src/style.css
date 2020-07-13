@@ -341,11 +341,11 @@ footer p {
   text-align: center;
 }
 
-.datosP {
+.datos__average {
   margin: 30px 0;
 }
 
-.datosP p span {
+.datos__average p span {
   font-weight: bold;
   letter-spacing: 1px;
 }
