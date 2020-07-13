@@ -1,73 +1,74 @@
 import funciones from "./data.js";
 
-let datosPokemon;
+let dataPokemon;
 
 // EJECUCION
 funciones.loadJSON((res) => {
-  datosPokemon = JSON.parse(res).pokemon; //PARSEAR EL JSON PQ LO QUE RECIBO ES UN STRING GIGANTE
+  dataPokemon = JSON.parse(res).pokemon; //PARSEAR EL JSON PQ LO QUE RECIBO ES UN STRING GIGANTE
 });
 
-const main = document.getElementById("contenedorTodaData");
-
+const containerData = document.getElementById("contenedorTodaData");
 const containerPokemones = document.getElementById("pokemones");
-
 const modal = document.getElementById("modal");
-const botonCerrarModal = document.getElementById("cerrar");
+const buttonCloseModal = document.getElementById("cerrar");
+const containerButtons = document.getElementById("contenedorBotones");
+const buttonNext = document.getElementById("siguiente");
+const buttonPrevious = document.getElementById("anterior");
+const menuBurguer = document.getElementById("menuTrigger");
+const selectFilter = document.getElementById("buscar__type");
+const order = document.getElementById("ordenarPorNombre");
+const CHART = document.getElementById("chart");
 
-const botones = document.getElementById("contenedorBotones");
-const botonSiguiente = document.getElementById("siguiente");
-const botonAnterior = document.getElementById("anterior");
-const menuHamburguesa = document.getElementById("menuTrigger");
+let pokemonesForPage = 12;
+const separationPage = Math.ceil(dataPokemon.length / pokemonesForPage);
 
-const selectFiltrar = document.getElementById("buscar__type");
-const ordenar = document.getElementById("ordenarPorNombre");
+let pageInitial = 1;
+let viewInitial;
 
-let pokemonesPorPagina = 12;
-const separacionPaginas = Math.ceil(datosPokemon.length / pokemonesPorPagina);
-
-let paginaInicial = 1;
-let vistaInicial;
-
-function agregarEscuchador() {
+//Agregar addEventListener a cada opcion del menu
+function addListener() {
   const links = document.querySelectorAll(".header__link");
-  links.forEach((link) => link.addEventListener("click", cambiarVista));
+  links.forEach((link) => link.addEventListener("click", changeView));
 }
 
-function cambiarVista(evento) {
-  const linkActivo = document.querySelector(".header__link__active");
+//Cambiar vista respecto a la seleccion del menu
+function changeView(evento) {
+  
+  const linkActive = document.querySelector(".header__link__active");
 
   document
     .querySelectorAll(".paginas")
-    .forEach((vista) => vista.classList.add("hidden"));
-  linkActivo.classList.remove("header__link__active");
-  cerrarModal();
+    .forEach((view) => view.classList.add("hidden"));
+  linkActive.classList.remove("header__link__active");
+  closeModal();
 
-  const enlace = evento.target;
-  const vista = enlace.getAttribute("href").slice(1);
+  const link = evento.target;
+  const view = link.getAttribute("href").slice(1);
+  link.classList.add("header__link__active");
+  document.getElementById(view).classList.remove("hidden");
 
-  enlace.classList.add("header__link__active");
-  document.getElementById(vista).classList.remove("hidden");
-
-  if (vista === "pokedex" || vista === "ordenar") {
-    botones.classList.remove("hidden");
-  } else if (vista === "datos") {
-    mostrarGraficas();
-    botones.classList.add("hidden");
+  if (view === "pokedex" || view === "ordenar") {       
+    containerButtons.classList.remove("hidden");
+  } else if (view === "datos") {
+    showGraphics();
+    containerButtons.classList.add("hidden");
   } else {
-    botones.classList.add("hidden");
+    containerButtons.classList.add("hidden");
   }
 
-  paginaInicial = 1;
-  vistaInicial = vista;
+  pageInitial = 1;
+  viewInitial = view;
   menu();
-  mostrarPokemon(vistaInicial);
+  showPokemon(viewInitial);
 }
 
+//Funcion para la pagecion
 function paginate(array, page_size, page_number) {
   return array.slice((page_number - 1) * page_size, page_number * page_size); //intervalo del array
 }
 
-function crearPokemonCard(pokemon) {
+//Crear las card de forma dinamica
+function createPokemonCard(pokemon) {
   const card = document.createElement("article");
   const container = document.createElement("div");
   // NOMBRE DE CLASE
@@ -104,91 +105,98 @@ function crearPokemonCard(pokemon) {
   card.appendChild(container);
   card.setAttribute("class", "card__container");
 
-  card.addEventListener("click", () => abrirModal(pokemon));
+  card.addEventListener("click", () => openModal(pokemon));
 
   return card;
 }
 
-function mostrarPokemon(vista) {
-  let datosAPintar;
-  let contenedorPokemones;
+//Realizamos el llamado a las funciones de data.js 
+function showPokemon(view) {
+  let showData;
+  let containerShowPokemon;
   let pagination;
 
-  if (vista === "ordenar") {
-    
-    const containerPokemonesOrdenados = document.getElementById(
+  if (view === "ordenar") {    
+    const containerPokemonesOrganized = document.getElementById(
       "pokemonesOrdenados"
     );
-    containerPokemonesOrdenados.innerHTML = "";
-    contenedorPokemones = containerPokemonesOrdenados;
-    let formaOrdenar = ordenar.value;
-    const d = datosPokemon.slice();
-    datosAPintar = funciones.sortData(d, "name", formaOrdenar);
-    pokemonesPorPagina = 12;
-  } else if (vista === "buscar") {
-    const pruebaFiltro = document.getElementById("pruebaFiltro");
-    pruebaFiltro.innerHTML = "";
-    let valorSelect = selectFiltrar.value;
-    const d = datosPokemon.slice();
-    datosAPintar = funciones.filterData(d, valorSelect);
-    contenedorPokemones = pruebaFiltro;
-    pokemonesPorPagina = 26;
-  } else {
-    borrarContenido();
-    datosAPintar = datosPokemon;
-    contenedorPokemones = containerPokemones;
+    containerPokemonesOrganized.innerHTML = "";
+    containerShowPokemon = containerPokemonesOrganized;
+    let valueOrder = order.value;
+    const d = dataPokemon.slice();
+    showData = funciones.sortData(d, "name", valueOrder);
+    pokemonesForPage = 12;
+  } else if (view === "buscar") {
+    const FilterForType = document.getElementById("pruebaFiltro");
+    FilterForType.innerHTML = "";
+    let valueFilter = selectFilter.value;
+    const d = dataPokemon.slice();
+    showData = funciones.filterData(d, valueFilter);
+    containerShowPokemon = FilterForType;
+    pokemonesForPage = 26;
+  } else {    
+    deleteContent();
+    showData = dataPokemon;
+    containerShowPokemon = containerPokemones;
   }
 
-  pagination = paginate(datosAPintar, pokemonesPorPagina, paginaInicial);
+  pagination = paginate(showData, pokemonesForPage, pageInitial);
   pagination.forEach((pokemon) => {
-    contenedorPokemones.appendChild(crearPokemonCard(pokemon));
+    containerShowPokemon.appendChild(createPokemonCard(pokemon));
   });
 }
 
-function borrarContenido() {
+//Borrar contenido de la pestaña Pokedex
+function deleteContent() {
   containerPokemones.innerHTML = "";
 }
 
-function revisarBotonSiguiente(pagina) {
-  botonSiguiente.style.display =
-    pagina + 1 > separacionPaginas ? "none" : "block";
+//Verificar si se muestra el boton siguiente
+function checkButtonNext(page) {
+  buttonNext.style.display =
+    page + 1 > separationPage ? "none" : "block";
 }
 
-function revisarBotonAtras(pagina) {
-  botonAnterior.style.display = pagina - 1 === 0 ? "none" : "block";
+//Verificar si se muestra el boton atras
+function checkButtonBack(page) {
+  buttonPrevious.style.display = page - 1 === 0 ? "none" : "block";
 }
 
-function cambiarPagina(event, vista) {
+//Cambio de pagina segun la data (12 pokemones por pagina)
+function changePage(event, view) {
   window.scrollTo(0, 0);
-  borrarContenido();
+  deleteContent();
   if (event.target.id === "siguiente") {
-    paginaInicial++;
+    pageInitial++;
   } else {
-    paginaInicial--;
+    pageInitial--;
   }
 
-  mostrarPokemon(vista);
-  revisarBotonAtras(paginaInicial);
-  revisarBotonSiguiente(paginaInicial);
-  // menu()
+  showPokemon(view);
+  checkButtonBack(pageInitial);
+  checkButtonNext(pageInitial);  
 }
 
+//Mostrar o ocultar el menu hamburguesa
 function menu() {
   document.getElementById("menu").classList.toggle("header__menu__position");
 }
 
-function abrirModal(pokemon) {
+//Abrir modal de pokemones
+function openModal(pokemon) {
   modal.classList.remove("hidden");
-  main.classList.add("hidden");
-  pintarPokemonEnModal(pokemon);
+  containerData.classList.add("hidden");
+  showPokemonModal(pokemon);
 }
 
-function cerrarModal() {
+//Cerrar modal
+function closeModal() {
   modal.classList.add("hidden");
-  main.classList.remove("hidden");
+  containerData.classList.remove("hidden");
 }
 
-function pintarPokemonEnModal(pokemon) {
+//Modal
+function showPokemonModal(pokemon) {
   window.scrollTo(0, 0);
 
   const infoPokemon = document.getElementsByClassName(
@@ -220,47 +228,21 @@ function pintarPokemonEnModal(pokemon) {
     </div>`;
 }
 
-function mostrarGraficas() {
-  const datosPromedio = document.getElementById("datosPromedio");
-  datosPromedio.innerHTML = `<p> El Promedio de <span>Peso</span> para los Pokemones es de: ${funciones.computeStats(
-    datosPokemon,
+//Visualizar datos promedio y graficas
+function showGraphics() {
+  const dataAverage = document.getElementById("datosPromedio");
+  dataAverage.innerHTML = `<p> El Promedio de <span>Peso</span> para los Pokemones es de: ${funciones.computeStats(
+    dataPokemon,
     "weight"
   )} kg</p>
     <p> El Promedio de <span>Altura</span> para los Pokemones es de: ${funciones.computeStats(
-      datosPokemon,
+      dataPokemon,
       "height"
     )} m
     </p>`;
-}
 
-botonSiguiente.addEventListener("click", () =>
-  cambiarPagina(event, vistaInicial)
-);
-botonAnterior.addEventListener("click", () =>
-  cambiarPagina(event, vistaInicial)
-);
-menuHamburguesa.addEventListener("click", menu);
-botonCerrarModal.addEventListener("click", cerrarModal);
-ordenar.addEventListener("change", () => {
-  paginaInicial = 1;
-  revisarBotonAtras("1");
-  mostrarPokemon("ordenar");
-});
-selectFiltrar.addEventListener("change", () => {
-  paginaInicial = 1;
-  revisarBotonAtras("1");
-  revisarBotonSiguiente(paginaInicial);
-  mostrarPokemon("buscar");
-});
-
-revisarBotonAtras(paginaInicial);
-revisarBotonSiguiente(paginaInicial);
-agregarEscuchador();
-
-const CHART = document.getElementById("chart");
-
-// eslint-disable-next-line no-undef,no-unused-vars
-let lineChart = new Chart(CHART, {
+  // eslint-disable-next-line no-undef,no-unused-vars
+  let lineChart = new Chart(CHART, {
   type: "pie",
   data: {
     labels: [
@@ -283,21 +265,21 @@ let lineChart = new Chart(CHART, {
     datasets: [
       {
         data: [
-          funciones.promedio(datosPokemon, "Dragon"),
-          funciones.promedio(datosPokemon, "Veneno"),
-          funciones.promedio(datosPokemon, "Volador"),
-          funciones.promedio(datosPokemon, "Insecto"),
-          funciones.promedio(datosPokemon, "Normal"),
-          funciones.promedio(datosPokemon, "Tierra"),
-          funciones.promedio(datosPokemon, "Psiquico"),
-          funciones.promedio(datosPokemon, "Hielo"),
-          funciones.promedio(datosPokemon, "Fantasma"),
-          funciones.promedio(datosPokemon, "Yerba"),
-          funciones.promedio(datosPokemon, "Fuego"),
-          funciones.promedio(datosPokemon, "Agua"),
-          funciones.promedio(datosPokemon, "Electrico"),
-          funciones.promedio(datosPokemon, "Lucha"),
-          funciones.promedio(datosPokemon, "Roca")
+          funciones.average(dataPokemon, "Dragon"),
+          funciones.average(dataPokemon, "Veneno"),
+          funciones.average(dataPokemon, "Volador"),
+          funciones.average(dataPokemon, "Insecto"),
+          funciones.average(dataPokemon, "Normal"),
+          funciones.average(dataPokemon, "Tierra"),
+          funciones.average(dataPokemon, "Psiquico"),
+          funciones.average(dataPokemon, "Hielo"),
+          funciones.average(dataPokemon, "Fantasma"),
+          funciones.average(dataPokemon, "Yerba"),
+          funciones.average(dataPokemon, "Fuego"),
+          funciones.average(dataPokemon, "Agua"),
+          funciones.average(dataPokemon, "Electrico"),
+          funciones.average(dataPokemon, "Lucha"),
+          funciones.average(dataPokemon, "Roca")
         ],
         label: "My first dataseet",
         backgroundColor: [
@@ -322,7 +304,7 @@ let lineChart = new Chart(CHART, {
   options: {
     responsive: true,
     responsiveAnimationDuration: 0,
-    maintainAspectRatio: 0,
+    containerDatatainAspectRatio: 0,
       title: {
           display: true,
           text: 'Cantidad de Pokemones por Tipo',
@@ -344,4 +326,36 @@ let lineChart = new Chart(CHART, {
           yPadding: 10,
       }
   }           
-})
+  })
+}
+
+buttonNext.addEventListener("click", () =>
+  changePage(event, viewInitial)
+);
+
+buttonPrevious.addEventListener("click", () =>
+  changePage(event, viewInitial)
+);
+
+menuBurguer.addEventListener("click", menu);
+buttonCloseModal.addEventListener("click", closeModal);
+order.addEventListener("change", () => {
+  pageInitial = 1;
+  checkButtonBack("1");
+  showPokemon("ordenar");
+});
+
+selectFilter.addEventListener("change", () => {
+  pageInitial = 1;
+  checkButtonBack("1");
+  checkButtonNext(pageInitial);
+  showPokemon("buscar");
+});
+
+checkButtonBack(pageInitial);
+checkButtonNext(pageInitial);
+addListener();
+
+
+
+
