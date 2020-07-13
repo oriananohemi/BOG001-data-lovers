@@ -76,6 +76,7 @@ function changeView(evento) {
   viewInitial = view;
   menu();
   showPokemon(viewInitial);
+  scrollto()
 }
 
 //Funcion para la pagecion
@@ -181,17 +182,17 @@ function checkButtonBack(page) {
 
 //Cambio de pagina segun la data (12 pokemones por pagina)
 function changePage(event, view) {
-  window.scrollTo(0, 0);
   deleteContent();
   if (event.target.id === "siguiente") {
     pageInitial++;
   } else {
     pageInitial--;
   }
-
+  
   showPokemon(view);
   checkButtonBack(pageInitial);
   checkButtonNext(pageInitial);  
+  scrollto()
 }
 
 //Mostrar o ocultar el menu hamburguesa
@@ -214,37 +215,36 @@ function closeModal() {
 
 //Modal
 function showPokemonModal(pokemon) {
-  window.scrollTo(0, 0);
-
+  scrollto()
   const infoPokemon = document.getElementsByClassName(
     "modal__pokemon__info"
-  )[0];
-
-  infoPokemon.innerHTML = `<div class = "modal__container-img">
-        <img class = "modal__img" src = "./image/pngflow.png" >
-        <img class = "modal__image-pokemon" src = "${pokemon.img}">
+    )[0];
+    
+    infoPokemon.innerHTML = `<div class = "modal__container-img">
+    <img class = "modal__img" src = "./image/pngflow.png" >
+    <img class = "modal__image-pokemon" src = "${pokemon.img}">
     </div>
     <div class = "modal__container-info">
-        <h2>${pokemon.name} ID. ${pokemon.id}</h2>
-        <div class = "modal__features">
-            <div>
-                <p>Altura: <span> ${pokemon.height} </span></p>
-                <p>Peso: <span> ${pokemon.weight} </span></p>
-                <p>Caramelo: <span> ${pokemon.candy} </span></p>
-                <p>Recuento de Caramelos: <span> ${
-                  pokemon.candy_count
-                } </span></p>
-            </div>
-            <div class = "modal__type">
-                <p>Tipo: </p>
-                <p><span>${pokemon.type.join(", ")}</span></p>
-                <p>Debilidad: </p>
-                <p><span>${pokemon.weaknesses.join(", ")}<span></p>
-            </div>
-        </div>
+    <h2>${pokemon.name} ID. ${pokemon.id}</h2>
+    <div class = "modal__features">
+    <div>
+    <p>Altura: <span> ${pokemon.height} </span></p>
+    <p>Peso: <span> ${pokemon.weight} </span></p>
+    <p>Caramelo: <span> ${pokemon.candy} </span></p>
+    <p>Recuento de Caramelos: <span> ${
+      pokemon.candy_count
+    } </span></p>
+    </div>
+    <div class = "modal__type">
+    <p>Tipo: </p>
+    <p><span>${pokemon.type.join(", ")}</span></p>
+    <p>Debilidad: </p>
+    <p><span>${pokemon.weaknesses.join(", ")}<span></p>
+    </div>
+    </div>
     </div>`;
-}
-
+  }
+  
 //Visualizar datos promedio y graficas
 function showGraphics() {
   const dataAverage = document.getElementById("datosPromedio");
@@ -344,6 +344,17 @@ let lineChart = new Chart(CHART, {
       }
   }           
   })
+}
+
+function scrollto() {
+  setTimeout(() => {
+    
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+  });
 }
 
 buttonNext.addEventListener("click", () =>
