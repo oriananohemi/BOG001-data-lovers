@@ -1,6 +1,5 @@
 import funciones from '../src/data';
-import data from '../src/data/pokemon/pokemon.js';
-
+import data from '../src/data/pokemon/pokemon.json';
 
 describe('funciones.filterData', () => {
   const datos = data.pokemon.slice()
@@ -62,10 +61,19 @@ describe('funciones.filterData', () => {
   });  
  });
 
- describe('funciones.loadJSON', () => {
+describe('funciones.promedio', () => {
+  const datos = data.pokemon.slice()
 
- it('Es una funcion', () => {
-   expect(typeof funciones.loadJSON).toBe('function');
+  it('Debe esperar 3 pokemones de tipo dragon', () => {
+    expect(funciones.promedio(datos, 'Dragon')).toBe(3);
+  });
+ 
+  it('Debe esperar 33 pokemones de tipo veneno', () => {
+    expect(funciones.promedio(datos, 'Veneno')).toBe(33);
+  });
+
+  it('Debe esperar 14 para los pokemones de tipo psiquico', () => {
+    expect(funciones.promedio(datos, 'Psiquico')).toBe(14);
+  });
+
  });
-
-});
