@@ -43,7 +43,7 @@
     return promedio;
   },
 
-  promedio: function (pokemon, condition) {
+  average: function (pokemon, condition) {
     let filtro = [];
     let contador = 0;
     for (let i = 0; i < pokemon.length; i++) {
