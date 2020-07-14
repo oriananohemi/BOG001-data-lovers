@@ -184,12 +184,7 @@ function checkButtonBack(page) {
 }
 
 //Cambio de pagina segun la data (12 pokemones por pagina)
-<<<<<<< HEAD
-function changePage(event, view) { 
-  window.scrollTo(0, 0);
-=======
 function changePage(event, view) {
->>>>>>> 03a2cab233045d869bc93da58c6c2f99d2f8f492
   deleteContent();
   if (event.target.id === "siguiente") {
     pageInitial++;
