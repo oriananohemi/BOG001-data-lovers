@@ -10,6 +10,7 @@
 * [6. Feedback](#6-feedback)
 * [7. Hacker edition](#7-hacker-edition)
 * [8. Objetivos de aprendizaje](#8-objetivos-de-aprendizaje)
+* [9. Checklist](#9-checklist)
 
 ***
 
@@ -19,6 +20,7 @@ En este proyecto **Pokedex-Code** podras visualizar por medio de **Cards** los p
 
 **DEMO**
 https://oriananohemi.github.io/BOG001-data-lovers/
+
 
 ## 2. Objetivo de la página
 
@@ -62,6 +64,9 @@ Es una página web enfocada en un **usuario** que quiera conocer acerca de los d
 ## 5. Prototipo de alta fidelidad
 
 El prototipo de alta fidelidad se realizo en Figma
+
+**Link Pototipo En Figma** 
+https://www.figma.com/file/hY1jmIMkONC7RzPzyUpz4P/Untitled?node-id=0%3A1
 
 ![](imgReadme/Pagina1.png)
 
