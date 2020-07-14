@@ -61,19 +61,19 @@ describe('funciones.filterData', () => {
   });  
  });
 
-describe('funciones.promedio', () => {
+describe('funciones.average', () => {
   const datos = data.pokemon.slice()
 
   it('Debe esperar 3 pokemones de tipo dragon', () => {
-    expect(funciones.promedio(datos, 'Dragon')).toBe(3);
+    expect(funciones.average(datos, 'Dragon')).toBe(3);
   });
  
   it('Debe esperar 33 pokemones de tipo veneno', () => {
-    expect(funciones.promedio(datos, 'Veneno')).toBe(33);
+    expect(funciones.average(datos, 'Veneno')).toBe(33);
   });
 
   it('Debe esperar 14 para los pokemones de tipo psiquico', () => {
-    expect(funciones.promedio(datos, 'Psiquico')).toBe(14);
+    expect(funciones.average(datos, 'Psiquico')).toBe(14);
   });
 
  });
