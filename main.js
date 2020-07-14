@@ -10,7 +10,7 @@ let dataPokemon;
   fetch("./data/pokemon/pokemon.json")
   .then(function(res) {
     if(res.status !== 200) {
-      console.log(res.status)
+      //console.log(res.status)
     }
 
     res.json().then(function(data) {
@@ -20,6 +20,7 @@ let dataPokemon;
       addListener()
     })
   }).catch((error) => {
+    // eslint-disable-next-line no-console
     console.log(error)
   })
 
@@ -50,6 +51,7 @@ function addListener() {
 //Cambiar vista respecto a la seleccion del menu
 function changeView(evento) {
   
+  
   const linkActive = document.querySelector(".header__link__active");
 
   document
@@ -63,9 +65,9 @@ function changeView(evento) {
   link.classList.add("header__link__active");
   document.getElementById(view).classList.remove("hidden");
 
-  if (view === "pokedex" || view === "ordenar") {       
+  if (view === "pokedex" || view === "ordenar") {        
     containerButtons.classList.remove("hidden");
-  } else if (view === "datos") {
+  } else if (view === "datos") {   
     showGraphics();
     containerButtons.classList.add("hidden");
   } else {
@@ -133,7 +135,8 @@ function showPokemon(view) {
   let containerShowPokemon;
   let pagination;
 
-  if (view === "ordenar") {    
+  if (view === "ordenar") { 
+      
     const containerPokemonesOrganized = document.getElementById(
       "pokemonesOrdenados"
     );
