@@ -24,29 +24,29 @@ Es una página web enfocada en un **usuario** que quiera conocer acerca de los d
 ## 3. Historias de usuario
 
 **Historia 1**
--Usuario: Jugador de Pokemon Go
--Necesita: Visualizar los Pokemones disponibles en el juego
--Para: Poder saber los pokemones que tiene su pokedex
+-Usuario: Jugador de Pokemon Go;
+-Necesita: Visualizar los Pokemones disponibles en el juego;
+-Para: Poder saber los pokemones que tiene su pokedex;
 
 **Historia 2**
--Usuario: Jugador de Pokemon Go
--Necesita: Filtrar los pokemones por tipo
--Para: Poder ganar combates
+-Usuario: Jugador de Pokemon Go;
+-Necesita: Filtrar los pokemones por tipo;
+-Para: Poder ganar combates;
 
 **Historia 3**
--Usuario: Jugador de Pokemon Go
--Necesita: Ordenar los pokemones 
--Para: Poder visualizar los diferentes pokemones
+-Usuario: Jugador de Pokemon Go;
+-Necesita: Ordenar los pokemones;
+-Para: Poder visualizar los diferentes pokemones;
 
 **Historia 4**
--Usuario: Jugador de Pokemon Go
--Necesita: Visualizar promedios de altura y peso 
--Para: Obtener datos estadisticos
+-Usuario: Jugador de Pokemon Go;
+-Necesita: Visualizar promedios de altura y peso; 
+-Para: Obtener datos estadisticos;
 
 **Historia 5**
--Usuario: Jugador de Pokemon Go
--Necesita: Visualizar las cantidades de pokemones por tipo 
--Para: Saber las cantidades de pokemones que tiene por tipo
+-Usuario: Jugador de Pokemon Go;
+-Necesita: Visualizar las cantidades de pokemones por tipo;
+-Para: Saber las cantidades de pokemones que tiene por tipo;
 
 ## 4. Prototipo de baja fidelidad
 
