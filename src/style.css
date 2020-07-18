@@ -171,7 +171,6 @@ body {
   text-align: left;
 }
 
-/* NOMBRE */
 .button__container {
   align-items: center;
   display: flex;
@@ -464,7 +463,7 @@ footer p {
   .card__container {
     flex-wrap: wrap;
     width: 40%;
-    max-width: calc(40% + 30px);
+    max-width: 40%;
   }
 
   .modal__pokemon__info {
@@ -496,8 +495,7 @@ footer p {
 
 @media (min-width: 1025px){
   .card__container {
-    flex: 1 1 25%;
-    max-width: calc(25% + 30px);
+    max-width: 25%;
   }
 
   .section__link img {
@@ -533,8 +531,7 @@ footer p {
 
 @media (min-width: 1201px){
   .card__container {
-    flex: 1 1 20%;
-    max-width: calc(20% + 30px);
+    max-width: 20%;
   }
 
   .inicio__container {
