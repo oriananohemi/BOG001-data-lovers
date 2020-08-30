@@ -1,4 +1,4 @@
-# POKEDEX-CODE
+# POKEDEX-CODE <img src="https://github.com/oriananohemi/BOG001-data-lovers/blob/master/src/image/Rectangle%201.png">
 
 ## Índice
 
@@ -18,7 +18,7 @@
 
 En este proyecto **Pokedex-Code** podras visualizar por medio de **Cards** los primeros 151 Pokemones de la región de Kanto y Johto con sus respectivas características usadas en el juego **Pokemon-GO**. En esta página web podras **visualizar** los Pokemones, **filtrarlos por tipo** (veneno, agua, fuego, lucha, roca, entre otros), **ordenarlos** de forma ascendente y descendente, además de visualizar datos como **promedios y gráficas**.
 
-**DEMO**
+**Demo del Proyecto**
 https://oriananohemi.github.io/BOG001-data-lovers/
 
 
